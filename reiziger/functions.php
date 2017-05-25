@@ -1419,7 +1419,8 @@ function custom_wpsl_store_data($stores){
  * Modify the posts query.
  *
  * Sort posts on the category posts page according to the custom sort order.
- * Exclude reiziger-tv category from the search.
+ * Exclude download pro files search.
+ * Set to return 10 results per page.
  *
  * @since	1.0
  */
@@ -1430,9 +1431,27 @@ function reiz_get_posts( $query ){
 		$query->set( 'order' , 'ASC' );
 	}
 	
-	// exclude reiziger-tv category from search
 	if ( $query->is_search ) {
+		// exclude reiziger-tv category and growth schedules from search
 		$query->set( 'cat', '-97' );
+		
+		// Only allow posts to be searched in search results exlude wpdmpro custom post types
+		$query->set( 'post_type', array( 'post', 'page' ) );
+		
+		// results per page
+		$query->set( 'posts_per_page', 10 );
+		
+		// exclude grow schedules
+		/*
+		$tax_query = $query->get( 'tax_query' ) ?: array();
+		$tax_query[] = array(
+			'taxonomy' => 'wpdmcategory',
+			'field'    => 'id',
+			'terms'    => array( 46 ),
+			'operator' => 'NOT IN',
+		);
+		$query->set( 'tax_query', $tax_query );
+		*/
 	}
 }
 
