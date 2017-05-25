@@ -23,7 +23,7 @@
 
 <article id="post-<?php the_ID(); ?>" class="whole-page"><?php //post_class(); ?>
 <!-- desktop Menu-->
-<div class="navigation3 topfixedmenu zz" id="fixmenu1">
+<div class="navigation3 topfixedmenu" id="fixmenu1">
 <div class="wrapper clearfix">
 <?php the_title( '<h3 class="entry-title">', '</h3>' );	?>
     <div></div>

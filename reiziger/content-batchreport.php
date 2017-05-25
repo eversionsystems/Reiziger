@@ -69,7 +69,7 @@
                 <td>Grow Food A&B </td>
                 <td>09/07/16</td>
                 <td>D:Fredericks</td>
-                <td><a href="http://dev.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
+                <td><a href="http://www.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
               </tr>
             </tbody>
           </table>
@@ -78,13 +78,13 @@
       <!-- .latest_report_div--> 
       <!-- chart section here...-->
       <div class="latest_report_graph">
-        <div class="left_graph"><img src="http://dev.reiziger.com/wp-content/themes/reiziger/images/graph01.jpg"></div>
-        <div class="right_graph"><img src="http://dev.reiziger.com/wp-content/themes/reiziger/images/graph02.jpg"></div>
-        <div class="left_graph"><img src="http://dev.reiziger.com/wp-content/themes/reiziger/images/graph03.jpg"></div>
-        <div class="right_graph"><img src="http://dev.reiziger.com/wp-content/themes/reiziger/images/graph04.jpg"></div>
-        <div class="left_graph"><img src="http://dev.reiziger.com/wp-content/themes/reiziger/images/graph05.jpg"></div>
-        <div class="right_graph"><img src="http://dev.reiziger.com/wp-content/themes/reiziger/images/graph06.jpg"></div>
-        <div class="left_graph"><img src="http://dev.reiziger.com/wp-content/themes/reiziger/images/graph07.jpg"></div>
+        <div class="left_graph"><img src="http://www.reiziger.com/wp-content/themes/reiziger/images/graph01.jpg"></div>
+        <div class="right_graph"><img src="http://www.reiziger.com/wp-content/themes/reiziger/images/graph02.jpg"></div>
+        <div class="left_graph"><img src="http://www.reiziger.com/wp-content/themes/reiziger/images/graph03.jpg"></div>
+        <div class="right_graph"><img src="http://www.reiziger.com/wp-content/themes/reiziger/images/graph04.jpg"></div>
+        <div class="left_graph"><img src="http://www.reiziger.com/wp-content/themes/reiziger/images/graph05.jpg"></div>
+        <div class="right_graph"><img src="http://www.reiziger.com/wp-content/themes/reiziger/images/graph06.jpg"></div>
+        <div class="left_graph"><img src="http://www.reiziger.com/wp-content/themes/reiziger/images/graph07.jpg"></div>
         <div class="right_graph"></div>
       </div>
       <!-- .chart section end here..-->
@@ -112,7 +112,7 @@
                 <td>Grow Food A&B </td>
                 <td>09/07/16</td>
                 <td>D:Fredericks</td>
-                <td><a href="http://dev.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
+                <td><a href="http://www.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
               </tr>
               <tr>
                 <td>Analysis Report</td>
@@ -120,7 +120,7 @@
                 <td>Grow Food A&B </td>
                 <td>08/07/16</td>
                 <td>D:Fredericks</td>
-                <td><a href="http://dev.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
+                <td><a href="http://www.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
               </tr>
               <tr>
                 <td>Analysis Report</td>
@@ -128,7 +128,7 @@
                 <td>Grow Food A&B </td>
                 <td>07/07/16</td>
                 <td>D:Fredericks</td>
-                <td><a href="http://dev.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
+                <td><a href="http://www.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
               </tr>
               <tr>
                 <td>Analysis Report</td>
@@ -136,7 +136,7 @@
                 <td>Grow Food A&B </td>
                 <td>06/07/16</td>
                 <td>D:Fredericks</td>
-                <td><a href="http://dev.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
+                <td><a href="http://www.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
               </tr>
               <tr>
                 <td>Analysis Report</td>
@@ -144,7 +144,7 @@
                 <td>Grow Food A&B </td>
                 <td>09/07/15</td>
                 <td>D:Fredericks</td>
-                <td><a href="http://dev.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
+                <td><a href="http://www.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
               </tr>
               <tr>
                 <td>Analysis Report</td>
@@ -152,7 +152,7 @@
                 <td>Grow Food A&B </td>
                 <td>09/07/15</td>
                 <td>D:Fredericks</td>
-                <td><a href="http://dev.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
+                <td><a href="http://www.reiziger.com/wp-content/themes/reiziger/images/demopdf.pdf" target="_blank"><i class="fa fa-download"></i></a></td>
               </tr>
             </tbody>
           </table>

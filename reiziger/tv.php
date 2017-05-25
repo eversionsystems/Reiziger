@@ -8,10 +8,10 @@
  * @subpackage Reiziger
  * @since Reiziger 1.0
  */
- 
+
 if(is_active_sidebar('help-center')) {
 	dynamic_sidebar('help-center');
-} ?>       	
+} ?>
 <div id="reziger-article" class="section-help-ariticles section-help-tv-new">
 <div class="wrapper clearfix">
 			<?php
@@ -24,17 +24,17 @@ if(is_active_sidebar('help-center')) {
 			<?php if ( have_posts() ) : ?>
 
 			<?php
-					
-							
-					// Start the Loop.	
+
+
+					// Start the Loop.
 					$counter=0;
-					
+
 					while ( have_posts() ) : the_post();
-							
+
 					if($counter % 2	== "0")
 						{
 							$class = " fl";
-							
+
 						}else{
 							$class= " fr";
 						}
@@ -44,25 +44,26 @@ if(is_active_sidebar('help-center')) {
 					 * (where ___ is the post format) and that will be used instead.
 					 */
 					// get_template_part( 'content', get_post_format() );
-					
+
 					echo "<div class='col-6".$class."'>";
 						get_template_part( 'latest-post-tv');
-					echo "</div>";		 
+					echo "</div>";
 
 					$counter++;
-					
+
 					if($counter % 2 == 0){echo '<div class="cl"></div>';}
-				
+
 					endwhile;
 					// Previous/next page navigation.
 					// reiziger_paging_nav();
-					
+
 					echo "<div class='pagination'>";
 					echo"<div class='page-link'>". previous_posts_link()."</div>";
-					echo"<div class='page-link'>". next_posts_link()."</div>"; 						
+					echo"<div class='page-link'>". next_posts_link()."</div>";
 					echo "</div>";
 
 
+          get_template_part( 'content', 'contact-support' );
 
 				else :
 					// If no content, include the "No posts found" template.
@@ -70,6 +71,6 @@ if(is_active_sidebar('help-center')) {
 
 				endif;
 			?>
-	
+
 </div>
 </div>

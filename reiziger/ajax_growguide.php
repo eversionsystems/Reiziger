@@ -1,6 +1,8 @@
 <?php
+    /** Load WordPress Bootstrap */
+    require_once( '../../../wp-load.php' );
 	
-	session_start();
+    session_start();
 	
 	$glevel = (isset($_GET['glevel'])) ? $_GET['glevel'] : $_POST['glevel'];
 	$sub_type = (isset($_GET['sub_type'])) ? $_GET['sub_type'] : $_POST['sub_type'];
@@ -14,9 +16,21 @@
 	$reservior = (isset($_GET['rese'])) ? $_GET['rese'] : $_POST['rese'];
 	$cond = (isset($_GET['cond'])) ? $_GET['cond'] : $_POST['cond'];
 	$waterh = (isset($_GET['waterh'])) ? $_GET['waterh'] : $_POST['waterh'];
-	$customwater = (isset($_GET['customwater'])) ? $_GET['customwater'] : $_POST['customwater'];
-	$valhide = (isset($_GET['valhide'])) ? $_GET['valhide'] : $_POST['valhide'];
+	$customwater = (isset($_GET['customwater'])) ? $_GET['customwater'] : @$_POST['customwater'];
+	$valhide = (isset($_GET['valhide'])) ? $_GET['valhide'] : @$_POST['valhide'];
 	
+    /* whlsft init variables */
+    $ttlbl = 0;
+    $ttlrt = 0;
+    $ttlgb = 0;
+    $ttlbb = 0;
+    $ttlbm = 0;
+    $mttlbl = 0;
+    $mttlrt = 0;
+    $mttlgb = 0;
+    $mttlbb = 0;
+    $mttlbm = 0;
+    
 	if(isset($valhide)) {
 		$chkcount = count($valhide);
 	}
@@ -216,28 +230,28 @@
 					<div class="th-col">
 						<div class="th-div th-col-1"><span>Plant Stage</span></div>
 						<div class="th-div">
-							<label for="stage"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Stage-GrowA.png"></label>
+							<label for="stage"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Stage-GrowA.png"></label>
 							</div>
 						<div class="th-div">
-							<label for="stage"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Stage-GrowB.png"></label>
+							<label for="stage"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Stage-GrowB.png"></label>
 							</div>
 						<div class="th-div">
-							<label for="stage"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Stage-Root.png"></label>
+							<label for="stage"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Stage-Root.png"></label>
 							<span><div class="chk-fix">
 							<input type="checkbox" name="radiohide[]" id="stage-dgroot" value="1" '.$chked[1].' ><label for="stage-dgroot"></label>
 							</div></span></div>
 						<div class="th-div">
-							<label for="stage"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Stage-GrowBooster.png"></label>
+							<label for="stage"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Stage-GrowBooster.png"></label>
 							<span><div class="chk-fix">
 							<input type="checkbox" name="radiohide[]" id="stage-dggrow" value="2" '.$chked[2].' ><label for="stage-dggrow"></label>
 							</div></span></div>
 						<div class="th-div"> &nbsp;
-							<!--<label for="stage"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Stage-Minerals.png"></label>
+							<!--<label for="stage"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Stage-Minerals.png"></label>
 							<span>
 							<input type="checkbox" name="radiohide[]" id="stage" value="3" '.$chked[3].' ><label for="stage"></label>
 							</span>--></div>
 						<div class="th-div"> &nbsp;
-							<!--<label for="stage"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Stage-Bud.png"></label>
+							<!--<label for="stage"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Stage-Bud.png"></label>
 							<span>
 							<input type="checkbox" name="radiohide[]" id="stage" value="4" '.$chked[4].' ><label for="stage"></label>
 							</span>--></div>
@@ -260,7 +274,7 @@
 				/* Grow Stage Calculation*/
 				for($i = 0; $i <= $gweek; $i++) {
 					if($i == 0) { // week 0
-						$rtval = 4.00000;
+						$rtval = 2.00000;
 						$gbval = 0;
 						$bbval = 0;
 						$bmval = 0;
@@ -469,7 +483,7 @@
 							}
 						}	
 					} else if( $i > 0 && $i < 4) { // week 1-3
-						$rtval = 2.00000;
+						$rtval = 1.50000;
 						$gbval = 2.50000;
 						$bbval = 0;
 						$bmval = 0;
@@ -679,7 +693,7 @@
 							}
 						}	
 					} else if( $i >= 4 && $i <= 20) { // week 4-20
-						$rtval = 2.00000;
+						$rtval = 1.50000;
 						$gbval = 2.50000;
 						$bbval = 2.00000;
 						$bmval = 0;
@@ -1112,10 +1126,10 @@
 					
 					if($i < 2) {
 						$plant = 'Cutting & Seedling';
-						$plant_img = 'http://dev.reiziger.com/wp-content/uploads/2015/10/seedling-img1.png';
+						$plant_img = 'http://www.reiziger.com/wp-content/uploads/2015/10/seedling-img1.png';
 					} else {
 						$plant = 'Grow';
-						$plant_img = 'http://dev.reiziger.com/wp-content/uploads/2015/11/seedling-img2.png';	
+						$plant_img = 'http://www.reiziger.com/wp-content/uploads/2015/11/seedling-img2.png';	
 					}
 					
 					if($i <= 9) {
@@ -1341,28 +1355,28 @@
 					<div class="th-col">
 						<div class="th-div th-col-1"><span>Plant Stage</span></div>
 						<div class="th-div">
-							<label for="stage"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Stage-BloomA.png"></label>
+							<label for="stage"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Stage-BloomA.png"></label>
 							</div>
 						<div class="th-div">
-							<label for="stage"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Stage-BloomB.png"></label>
+							<label for="stage"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Stage-BloomB.png"></label>
 							</div>
 						<div class="th-div">
-							<label for="stage"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Stage-Root.png"></label>
+							<label for="stage"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Stage-Root.png"></label>
 							<span><div class="chk-fix">
 							<input type="checkbox" name="radiohide[]" id="stage-dbroot" value="5" '.$chked[5].'><label for="stage-dbroot"></label>
 							</div></span></div>
 						<div class="th-div">
-							<label for="stage"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Stage-GrowBooster.png"></label>
+							<label for="stage"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Stage-GrowBooster.png"></label>
 							<span><div class="chk-fix">
 							<input type="checkbox" name="radiohide[]" id="stage-dbgrow" value="6" '.$chked[6].'><label for="stage-dbgrow"></label>
 							</div></span></div>
 						<div class="th-div">
-							<label for="stage"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Stage-Minerals.png"></label>
+							<label for="stage"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Stage-Minerals.png"></label>
 							<span><div class="chk-fix">
 							<input type="checkbox" name="radiohide[]" id="stage-dbminerals" value="7" '.$chked[7].'><label for="stage-dbminerals"></label>
 							</div></span></div>
 						<div class="th-div">
-							<label for="stage"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Stage-Bud.png"></label>
+							<label for="stage"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Stage-Bud.png"></label>
 							<span><div class="chk-fix">
 							<input type="checkbox" name="radiohide[]" id="stage-dbbud" value="8" '.$chked[8].'><label for="stage-dbbud"></label>
 							</div></span></div>
@@ -1387,7 +1401,7 @@
 						// week 1-2
 						$bsrtval = 0.50000;
 						$bsgbval = 2.50000;
-						$bsbbval = 2.00000;
+						$bsbbval = 4.00000;
 						$bsbmval = 0;
 						if ($sub_type == 0) { //Subtract Type - Hydroponic
 							if($flevel == 0) { // Food Level - Light
@@ -2034,7 +2048,7 @@
 									<div class="stage-silde">
 										<div class="stage-row"> <span>Plant Stage</span></div>
 										<div class="cl"></div>
-										<div class="sel-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/11/seedling-img3.png"></div>
+										<div class="sel-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/11/seedling-img3.png"></div>
 										<div class="sel-text">
 											<div class="week-col"> <span class="s-stage">Bloom</span> <span>Week</span>'.$week_num.'</div>
 											<div class="week-col ec-col"><ul><li><span class="s-state">EC</span>'.$bmec.'</li><li><span>EC+Water</span>'.$bswthrd.'</li></ul></div>
@@ -2055,7 +2069,7 @@
 							if( $i >= 3 ) { // week 3-11
 								$bsrtval = 0.50000;
 								$bsgbval = 2.50000;
-								$bsbbval = 2.00000;
+								$bsbbval = ($i == 3 ? 4.00000 : 1.00000);
 								$bsbmval = 0;
 								if ($sub_type == 0) { //Subtract Type - Hydroponic
 									if($flevel == 0) { // Food Level - Light
@@ -2703,7 +2717,7 @@
 										<div class="stage-silde">
 											<div class="stage-row"> <span>Plant Stage</span></div>
 											<div class="cl"></div>
-											<div class="sel-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/11/seedling-img3.png"></div>
+											<div class="sel-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/11/seedling-img3.png"></div>
 											<div class="sel-text">
 												<div class="week-col"> <span class="s-stage">Bloom</span><span>Week</span>'.$week_num.'</div>
 												<div class="week-col ec-col"><ul><li><span class="s-state">EC</span>'.$bmec.'</li><li><span>EC+Water</span>'.$bswthrd.'</li></ul></div>
@@ -2734,7 +2748,7 @@
 					if( $lw == 3 ) { // week 12
 						$bsrtval = 0.50000;
 						$bsgbval = 2.50000;
-						$bsbbval = 2.00000;
+						$bsbbval = 1.00000;
 						$bsbmval = 1.50000;
 						if ($sub_type == 0) { //Subtract Type - Hydroponic
 							if($flevel == 0) { // Food Level - Light
@@ -3025,7 +3039,7 @@
 					if( $lw > 3 && $lw < 6 ) { // week 13-14
 						$bsrtval = 0.50000;
 						$bsgbval = 2.50000;
-						$bsbbval = 2.00000;
+						$bsbbval = 1.00000;
 						$bsbmval = 0;
 						if ($sub_type == 0) { //Subtract Type - Hydroponic
 							if($flevel == 0) { // Food Level - Light
@@ -3237,7 +3251,7 @@
 					if( $lw == 6 ) { // week 15
 						$bsrtval = 0;
 						$bsgbval = 2.50000;
-						$bsbbval = 2.00000;
+						$bsbbval = 1.00000;
 						$bsbmval = 0;
 						if ($sub_type == 0) { //Subtract Type - Hydroponic
 							if($flevel == 0) { // Food Level - Light
@@ -3957,7 +3971,7 @@
 								<div class="stage-silde">
 									<div class="stage-row"> <span>Plant Stage</span></div>
 									<div class="cl"></div>
-									<div class="sel-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/11/seedling-img3.png"></div>
+									<div class="sel-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/11/seedling-img3.png"></div>
 									<div class="sel-text">
 										<div class="week-col"> <span class="s-stage">Bloom</span><span>Week</span>'.$week_num.'</div>
 										<div class="week-col ec-col"><ul><li><span class="s-state">EC</span>'.$bmec.'</li><li><span>EC+Water</span>'.$bswthrd.'</li></ul></div>
@@ -4006,45 +4020,63 @@
 			
 			if($glevel == 0) {
 				$lt = 1;
-				$pricegr = 44.30;
-				$pricebl = 44.30;
-				$pricert = 100.10;
-				$pricegb = 52.95;
-				$pricebm = 41.77;
-				$pricebb = 168.35;
+//				$pricegr = 44.30;
+                $pricegr = (float)wc_get_product( 4908 )->get_regular_price();
+//				$pricebl = 44.30;
+                $pricebl = (float)wc_get_product( 4914 )->get_regular_price();
+//				$pricert = 100.10;
+                $pricert = (float)wc_get_product( 4895 )->get_regular_price();
+//				$pricegb = 52.95;
+                $pricegb = (float)wc_get_product( 4905 )->get_regular_price();
+//				$pricebm = 41.77;
+                $pricebm = (float)wc_get_product( 4075 )->get_regular_price();
+//				$pricebb = 168.35;
+                $pricebb = (float)wc_get_product( 4900 )->get_regular_price();
 			} else if($glevel == 1) {
 				$lt = 5;
-				$pricegr = 130.03;
-				$pricebl = 130.03;
-				$pricert = 412.10;
-				$pricegb = 220.23;
-				$pricebm = 162.92;
-				$pricebb = 670.78;
+//				$pricegr = 130.03;
+                $pricegr = (float)wc_get_product( 4910 )->get_regular_price();
+//				$pricebl = 130.03;
+                $pricebl = (float)wc_get_product( 4917 )->get_regular_price();
+//				$pricert = 412.10;
+                $pricert = (float)wc_get_product( 4893 )->get_regular_price();
+//				$pricegb = 220.23;
+                $pricegb = (float)wc_get_product( 4904 )->get_regular_price();
+//				$pricebm = 162.92;
+                $pricebm = (float)wc_get_product( 4081 )->get_regular_price();
+//				$pricebb = 670.78;
+                $pricebb = (float)wc_get_product( 4899 )->get_regular_price();
 			} else if($glevel == 2) {
 				$lt = 20;
-				$pricegr = 452.55;
-				$pricebl = 497.43;
-				$pricert = 795.05;
-				$pricegb = 415.63;
-				$pricebm = 306.88;
-				$pricebb = 670.78;
+//				$pricegr = 452.55;
+                $pricegr = (float)wc_get_product( 4912 )->get_regular_price();
+//				$pricebl = 497.43;
+                $pricebl = (float)wc_get_product( 4918 )->get_regular_price();
+//				$pricert = 795.05;
+                $pricert = (float)wc_get_product( 4891 )->get_regular_price() * 2;
+//				$pricegb = 415.63;
+                $pricegb = (float)wc_get_product( 4906 )->get_regular_price() * 2;
+//				$pricebm = 306.88;
+                $pricebm = (float)wc_get_product( 4084 )->get_regular_price() * 2;
+//				$pricebb = 670.78;
+                $pricebb = (float)wc_get_product( 4901 )->get_regular_price() * 2;
 			}
 			
 			
-			$cqtygr = covt_mltolit($qtygr,$lt);
-			$cqtybl = covt_mltolit($qtybl,$lt);
-			$cqtyrt = covt_mltolit($qtyrt,$lt);
-			$cqtygb = covt_mltolit($qtygb,$lt);
-			$cqtybb = covt_mltolit($qtybb,$lt);
-			$cqtybm = covt_mltolit($qtybm,$lt);
+			$cqtygr = covt_mltolit(round($qtygr),$lt);
+			$cqtybl = covt_mltolit(round($qtybl),$lt);
+			$cqtyrt = covt_mltolit(round($qtyrt),$lt);
+			$cqtygb = covt_mltolit(round($qtygb),$lt);
+			$cqtybb = covt_mltolit(round($qtybb),$lt);
+			$cqtybm = covt_mltolit(round($qtybm),$lt);
 			
 			/* Mobile Price */
-			$mcqtygr = covt_mltolit($mqtygr,$lt);
-			$mcqtybl = covt_mltolit($mqtybl,$lt);
-			$mcqtyrt = covt_mltolit($mqtyrt,$lt);
-			$mcqtygb = covt_mltolit($mqtygb,$lt);
-			$mcqtybb = covt_mltolit($mqtybb,$lt);
-			$mcqtybm = covt_mltolit($mqtybm,$lt);
+			$mcqtygr = covt_mltolit(round($mqtygr),$lt);
+			$mcqtybl = covt_mltolit(round($mqtybl),$lt);
+			$mcqtyrt = covt_mltolit(round($mqtyrt),$lt);
+			$mcqtygb = covt_mltolit(round($mqtygb),$lt);
+			$mcqtybb = covt_mltolit(round($mqtybb),$lt);
+			$mcqtybm = covt_mltolit(round($mqtybm),$lt);
 			/* ---  */
 			
 			$fpricegr = price_cal($cqtygr,$pricegr);
@@ -4092,7 +4124,7 @@
 			if ($qtygr > 0)	 {
 			$data .='<div class="cost-col">
 					<h3>Grow Food A & B</h3>
-					<div class="cost-dv gr-img"> <img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Cost-GrowAB.png"> </div>
+					<div class="cost-dv gr-img"> <img src="http://www.reiziger.com/wp-content/uploads/2015/10/Cost-GrowAB.png"> </div>
 					<div class="cost-dv"> <span>Quantity</span>'.round($qtygr).$ml.'</div>
 					<div class="cost-dv"> <span>Cost</span>$'.$fpricegr.'</div>
 					<div class="cost-dv"> <span>Percentage</span>'.floor($percgr).'%</div>
@@ -4102,9 +4134,9 @@
 						<div class="stage-silde">
 							<div class="stage-row"> <span class="c-bg">Cost Of Grow Food A&B</span> <span>&nbsp;</span> </div>
 							<div class="cl"></div>
-							<div class="sel-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
+							<div class="sel-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
 							<div class="sel-text">
-								<div class="week-col pro-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Cost-GrowAB.png"><span>Grow Food A&B</span></div>
+								<div class="week-col pro-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Cost-GrowAB.png"><span>Grow Food A&B</span></div>
 								<div class="week-col ec-col-new"> <span class="s-state">Quantity</span>'.round($mqtygr).$ml.'</div>
 								<div class="week-col ec-col-new"> <span class="s-state">Cost</span>$'.$mfpricegr.'</div>
 								<div class="week-col ec-col-new"> <span class="s-state">Percentage</span>'.floor($mpercgr).'%</div>
@@ -4116,7 +4148,7 @@
 			if ($qtybl > 0)	 {
 			$data .='<div class="cost-col">
 					<h3>Bloom Food  A & B</h3>
-					<div class="cost-dv gr-img"> <img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Cost-BloomAB.png"> </div>
+					<div class="cost-dv gr-img"> <img src="http://www.reiziger.com/wp-content/uploads/2015/10/Cost-BloomAB.png"> </div>
 					<div class="cost-dv"> <span>Quantity</span>'.round($qtybl).$ml.'</div>
 					<div class="cost-dv"> <span>Cost</span>$'.$fpricebl.'</div>
 					<div class="cost-dv"> <span>Percentage</span>'.floor($percbl).'%</div>
@@ -4126,9 +4158,9 @@
 						<div class="stage-silde">
 							<div class="stage-row"> <span class="c-bg">Cost Of Bloom Food  A & B</span> <span>&nbsp;</span> </div>
 							<div class="cl"></div>
-							<div class="sel-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
+							<div class="sel-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
 							<div class="sel-text">
-								<div class="week-col pro-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Cost-BloomAB.png"><span>Bloom Food A&B</span></div>
+								<div class="week-col pro-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Cost-BloomAB.png"><span>Bloom Food A&B</span></div>
 								<div class="week-col ec-col-new"> <span class="s-state">Quantity</span>'.round($mqtybl).$ml.'</div>
 								<div class="week-col ec-col-new"> <span class="s-state">Cost</span>$'.$mfpricebl.'</div>
 								<div class="week-col ec-col-new"> <span class="s-state">Percentage</span>'.floor($mpercbl).'%</div>
@@ -4140,7 +4172,7 @@
 			if ($qtyrt > 0)	 {
 			$data .='<div class="cost-col">
 					<h3>Root Booster</h3>
-					<div class="cost-dv gr-img"> <img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Cost-RootAB.png"> </div>
+					<div class="cost-dv gr-img"> <img src="http://www.reiziger.com/wp-content/uploads/2015/10/Cost-RootAB.png"> </div>
 					<div class="cost-dv"> <span>Quantity</span>'.round($qtyrt).$ml.'</div>
 					<div class="cost-dv"> <span>Cost</span>$'.$fpricert.'</div>
 					<div class="cost-dv"> <span>Percentage</span>'.floor($percrt).'%</div>
@@ -4151,9 +4183,9 @@
 					<div class="stage-silde">
 						<div class="stage-row"> <span class="c-bg">Cost Of Root Booster</span> <span>&nbsp;</span> </div>
 						<div class="cl"></div>
-						<div class="sel-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
+						<div class="sel-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
 						<div class="sel-text">
-							<div class="week-col pro-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Cost-RootAB.png"><span>Root Booster</span></div>
+							<div class="week-col pro-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Cost-RootAB.png"><span>Root Booster</span></div>
 							<div class="week-col ec-col-new"> <span class="s-state">Quantity</span>'.round($mqtyrt).$ml.'</div>
 							<div class="week-col ec-col-new"> <span class="s-state">Cost</span>$'.$mfpricert.'</div>
 							<div class="week-col ec-col-new"> <span class="s-state">Percentage</span>'.floor($mpercrt).'%</div>
@@ -4166,7 +4198,7 @@
 			if ($qtygb > 0)	 {
 			$data .='<div class="cost-col">
 					<h3>Grow Booster</h3>
-					<div class="cost-dv gr-img"> <img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Cost-Grow.png"> </div>
+					<div class="cost-dv gr-img"> <img src="http://www.reiziger.com/wp-content/uploads/2015/10/Cost-Grow.png"> </div>
 					<div class="cost-dv"> <span>Quantity</span>'.round($qtygb).$ml.'</div>
 					<div class="cost-dv"> <span>Cost</span>$'.$fpricegb.'</div>
 					<div class="cost-dv"> <span>Percentage</span>'.floor($percgb).'%</div>
@@ -4177,9 +4209,9 @@
 					<div class="stage-silde">
 						<div class="stage-row"> <span class="c-bg">Cost Of Grow Booster</span> <span>&nbsp;</span> </div>
 						<div class="cl"></div>
-						<div class="sel-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
+						<div class="sel-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
 						<div class="sel-text">
-							<div class="week-col pro-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Cost-Grow.png"><span>Grow Booster</span></div>
+							<div class="week-col pro-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Cost-Grow.png"><span>Grow Booster</span></div>
 							<div class="week-col ec-col-new"> <span class="s-state">Quantity</span>'.round($mqtygb).$ml.'</div>
 							<div class="week-col ec-col-new"> <span class="s-state">Cost</span>$'.$mfpricegb.'</div>
 							<div class="week-col ec-col-new"> <span class="s-state">Percentage</span>'.floor($mpercgb).'%</div>
@@ -4192,7 +4224,7 @@
 			if ($qtybm > 0)	 {
 			$data .='<div class="cost-col">
 					<h3>Bloom Minerals</h3>
-					<div class="cost-dv gr-img"> <img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Cost-Minerals.png"> </div>
+					<div class="cost-dv gr-img"> <img src="http://www.reiziger.com/wp-content/uploads/2015/10/Cost-Minerals.png"> </div>
 					<div class="cost-dv"> <span>Quantity</span>'.round($qtybm).$ml.'</div>
 					<div class="cost-dv"> <span>Cost</span>$'.$fpricebm.'</div>
 					<div class="cost-dv"> <span>Percentage</span>'.floor($percbm).'%</div>
@@ -4203,9 +4235,9 @@
 					<div class="stage-silde">
 						<div class="stage-row"> <span class="c-bg">Cost Of Bloom Minerals</span> <span>&nbsp;</span> </div>
 						<div class="cl"></div>
-						<div class="sel-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
+						<div class="sel-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
 						<div class="sel-text">
-							<div class="week-col pro-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Cost-Minerals.png"><span>Bloom Minerals</span></div>
+							<div class="week-col pro-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Cost-Minerals.png"><span>Bloom Minerals</span></div>
 							<div class="week-col ec-col-new"> <span class="s-state">Quantity</span>'.round($mqtybm).$ml.'</div>
 							<div class="week-col ec-col-new"> <span class="s-state">Cost</span>$'.$mfpricebm.'</div>
 							<div class="week-col ec-col-new"> <span class="s-state">Percentage</span>'.floor($mpercbm).'%</div>
@@ -4218,7 +4250,7 @@
 			if ($qtybb > 0)	 {
 			$data .='<div class="cost-col">
 					<h3>Bud Booster</h3>
-					<div class="cost-dv gr-img"> <img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Cost-Bud.png"> </div>
+					<div class="cost-dv gr-img"> <img src="http://www.reiziger.com/wp-content/uploads/2015/10/Cost-Bud.png"> </div>
 					<div class="cost-dv"> <span>Quantity</span>'.round($qtybb).$ml.'</div>
 					<div class="cost-dv"> <span>Cost</span>$'.$fpricebb.'</div>
 					<div class="cost-dv"> <span>Percentage</span>'.round($percbb).'%</div>
@@ -4229,9 +4261,9 @@
 					<div class="stage-silde">
 						<div class="stage-row"> <span class="c-bg">Cost Of Bud Booster</span> <span>&nbsp;</span> </div>
 						<div class="cl"></div>
-						<div class="sel-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
+						<div class="sel-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
 						<div class="sel-text">
-							<div class="week-col pro-img"><img src="http://dev.reiziger.com/wp-content/uploads/2015/10/Cost-Bud.png"><span>Bud Booster</span></div>
+							<div class="week-col pro-img"><img src="http://www.reiziger.com/wp-content/uploads/2015/10/Cost-Bud.png"><span>Bud Booster</span></div>
 							<div class="week-col ec-col-new"> <span class="s-state">Quantity</span>'.round($mqtybb).$ml.'</div>
 							<div class="week-col ec-col-new"> <span class="s-state">Cost</span>$'.$mfpricebb.'</div>
 							<div class="week-col ec-col-new"> <span class="s-state">Percentage</span>'.floor($mpercbb).'%</div>
@@ -4253,7 +4285,7 @@
 					<div class="stage-silde total-area">
 						<div class="stage-row"> <span class="c-bg">Total Cost Of Grow</span> <span>&nbsp;</span> </div>
 						<div class="cl"></div>
-						<div class="sel-img alltotal"><img src="http://dev.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
+						<div class="sel-img alltotal"><img src="http://www.reiziger.com/wp-content/uploads/2015/11/seedling-img4.png"></div>
 						<div class="sel-text">
 							<div class="week-col"><span class="s-state">Total Cost</span>$'.$mttlest.'</div>
 						</div>

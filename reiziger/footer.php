@@ -9,14 +9,14 @@
  * @since Reiziger 1.0
  */
 ?>
-	
+
 		<?php if ((!is_page('landing-page'))&&(!is_front_page())): ?>
         <div style="clear:both;"></div>
         <footer>
 			<?php if ( is_active_sidebar( 'footer-top' ) ) : ?>
                     <?php dynamic_sidebar( 'footer-top' ); ?>
             <?php endif; ?>
-  
+
             <div class="footer-midd">
                 <div class="wrapper clearfix">
 					<?php if ( is_active_sidebar( 'footer-col1' ) ) : ?>
@@ -24,40 +24,40 @@
                     	<?php dynamic_sidebar( 'footer-col1' ); ?>
                     </div>
                     <?php endif; ?>
-                    
+
                     <?php if ( is_active_sidebar( 'footer-col2' ) ) : ?>
                     <div class="col2 fo2">
                     	<?php dynamic_sidebar( 'footer-col2' ); ?>
                     </div>
                     <?php endif; ?>
-                    
+
                     <?php if ( is_active_sidebar( 'footer-col3' ) ) : ?>
                     <div class="col2 hllink fo3">
                     	<?php dynamic_sidebar( 'footer-col3' ); ?>
                     </div>
                     <?php endif; ?>
-                    
+
                     <?php if ( is_active_sidebar( 'footer-col4' ) ) : ?>
                    <div class="col2 arlink fo4">
                     	<?php dynamic_sidebar( 'footer-col4' ); ?>
                     </div>
                     <?php endif; ?>
-					
+
 					<?php if ( is_active_sidebar( 'footer-col5' ) ) : ?>
                     <div class="col2 arlink fo5">
                     	<?php dynamic_sidebar( 'footer-col5' ); ?>
                     </div>
                     <?php endif; ?>
-					
+
 					<?php if ( is_active_sidebar( 'footer-col6' ) ) : ?>
                     <div class="col2 arlink fo6">
                     	<?php dynamic_sidebar( 'footer-col6' ); ?>
                     </div>
                     <?php endif; ?>
-                
+
                 </div>
             </div>
-            
+
             <?php if ( is_active_sidebar( 'footer-bottom' ) ) : ?>
             <div class="copy">
             	<div class="wrapper">
@@ -65,10 +65,10 @@
 	            </div>
             </div>
              <?php endif; ?>
-  
+
 		</footer>
         <?php endif; ?>
-		
+
 		<?php if ( is_active_sidebar( 'login' ) ) : ?>
 			<?php dynamic_sidebar( 'login' ); ?>
 		<?php endif; ?>
@@ -78,45 +78,45 @@
   <div class="contact-body">
    <ul class="tcom-disclaimers-list">
    <?php if( have_rows('msrp_disclosuresclosers',5644) ){ $disc_counter = 1; ?>
-	<?php while( have_rows('msrp_disclosuresclosers',5644) ){ the_row(); 
+	<?php while( have_rows('msrp_disclosuresclosers',5644) ){ the_row();
 		$disclosurescloser = get_sub_field('disclosurescloser',5644);
 		$msrp_class= "msrp_".$disc_counter;
 		if($disc_counter==1){ $msrp_class = "msrp_".$disc_counter." first";	} ?>
 		<li class="<?php echo $msrp_class; ?>"><?php echo $disc_counter; ?>. <?php echo $disclosurescloser; ?></li>
 	 <?php $disc_counter++; } ?>
   <?php } ?>
-  </ul> 
+  </ul>
  </div>
 </div>
 
-        
-	
+
+
 	</div>
 	<!-- main-body -->
 	<?php wp_footer(); ?>
-    
+
 	<script type="text/javascript">
 		jQuery(".slide-nav a").click(function(){
 			jQuery(".navigation2").slideToggle('');
 			jQuery(this).toggleClass("active");
-		}); 
+		});
 
 		jQuery(".search-icon").click(function(){
 			jQuery(".sea-in").toggle('');
 			jQuery(this).toggleClass("active");
-		}); 
+		});
 
 		jQuery(".scroll-nav a").click(function(){
 			jQuery(".scroll-navigate").slideToggle('');
 			jQuery(this).toggleClass("active");
-		}); 
-		
+		});
+
 		jQuery(".mobile-bar a").click(function(){
 			jQuery(".navication").slideToggle();
-			jQuery(this).toggleClass("active");		
+			jQuery(this).toggleClass("active");
 		});
-	</script> 
-	 
+	</script>
+
 	<script type="text/javascript">
 	jQuery(function() {
 		jQuery('#slides').superslides({
@@ -126,7 +126,7 @@
 			pagination: false
 		});
 	});
-	
+
 	// adding touch support for the main slider (using SouchSwipe)
 	$('#slides').swipe( {
 		swipeLeft:function() {
@@ -136,7 +136,7 @@
 			$(this).superslides('animate', 'prev');
 		}
 	});
-		
+
     /*var $slides = jQuery('.slides-container');
     $slides.swipe( {
       swipeLeft:function() {
@@ -147,8 +147,8 @@
       }
     });*/
 	</script>
-    
-	<script type="text/javascript">	
+
+	<script type="text/javascript">
 	/*jQuery(window).scroll(function(){
 		jQuery(".desk-header .navication li").each(function() {
 			if(jQuery(this).hasClass( 'ubermenu-has-submenu-drop' )){
@@ -161,8 +161,8 @@
 					}
 				}
 			}
-    		
-			
+
+
 	  });
 	});*/
 	</script>
@@ -174,9 +174,12 @@
 		jQuery('#header-blue').scrollToFixed();
 		//jQuery('.cart_menu').scrollToFixed();
 	</script>
-	
+
 	<script type="text/javascript">
-		jQuery( function() {		
+
+		jQuery('body').on('contextmenu', 'img', function(e){ return false; });
+
+		jQuery( function() {
 			/*jQuery('#cd-dropdown').dropdown({ gutter : 0 });
 			jQuery('#cd-dropdown1').dropdown({ gutter : 0 });
 			jQuery('#cd-dropdown2').dropdown({ gutter : 0 });
@@ -184,14 +187,14 @@
 			jQuery('#cd-dropdown4').dropdown({ gutter : 0 });*/
 			/*jQuery('#product-option').dropdown({ gutter : 0 });*/
 		});
-		
+
 		/* -- Substrate -- */
 		jQuery("#cd-dropdown").each(function(){
             jQuery(this).wrap("<span class='grow-guide select-wrapper'></span>");
 			jQuery(this).after("<input type='hidden' value='-1' name='subtrate' id='subtrate'>");
             jQuery(this).after("<span class='holder'></span>");
         });
-		
+
         jQuery("#cd-dropdown").change(function(){
             var selectedOption = jQuery(this).find(":selected").text();
 			var selectedval = jQuery(this).find(":selected").val();
@@ -199,14 +202,14 @@
 			jQuery("input#subtrate").val(selectedval);
         }).trigger('change');
 		/* ----- */
-		
+
 		/* --Grow Level-- */
 		jQuery("#cd-dropdown4").each(function(){
             jQuery(this).wrap("<span class='grow-guide select-wrapper'></span>");
 			jQuery(this).after("<input type='hidden' value='-1' name='glevel' id='glevel'>");
             jQuery(this).after("<span class='holder'></span>");
         });
-		
+
         jQuery("#cd-dropdown4").change(function(){
             var selectedOption = jQuery(this).find(":selected").text();
 			var selectedval = jQuery(this).find(":selected").val();
@@ -214,14 +217,14 @@
 			jQuery("input#glevel").val(selectedval);
         }).trigger('change');
 		/* ----- */
-		
+
 		/* -- Units-- */
 		jQuery("#cd-dropdown3").each(function(){
             jQuery(this).wrap("<span class='grow-guide select-wrapper reservior'></span>");
 			jQuery(this).after("<input type='hidden' value='-1' name='reservior' id='reservior'>");
             jQuery(this).after("<span class='holder'></span>");
         });
-		
+
         jQuery("#cd-dropdown3").change(function(){
             var selectedOption = jQuery(this).find(":selected").text();
 			var selectedval = jQuery(this).find(":selected").val();
@@ -229,14 +232,14 @@
 			jQuery("input#reservior").val(selectedval);
         }).trigger('change');
 		/* ----- */
-		
+
 		/* -- Conductivity -- */
 		jQuery("#cd-dropdown1").each(function(){
             jQuery(this).wrap("<span class='grow-guide select-wrapper'></span>");
 			jQuery(this).after("<input type='hidden' value='-1' name='conductivity' id='conductivity'>");
             jQuery(this).after("<span class='holder'></span>");
         });
-		
+
         jQuery("#cd-dropdown1").change(function(){
             var selectedOption = jQuery(this).find(":selected").text();
 			var selectedval = jQuery(this).find(":selected").val();
@@ -244,7 +247,7 @@
 			//alert(selectedwater);
             jQuery(this).next(".holder").text(selectedOption);
 			jQuery("input#conductivity").val(selectedval);
-			
+
 			if(selectedval == 1) {
 				jQuery('#cd-dropdown2 option[value="1"]').text("RO - 0.0");
 				jQuery('#cd-dropdown2 option[value="2"]').text("Soft - 0.2");
@@ -271,21 +274,21 @@
 				jQuery('#cd-dropdown2 option[value="3"]').text("Medium - 4");
 				jQuery('#cd-dropdown2 option[value="4"]').text("Hard - 6");
 			}
-			
+
 			if(selectedwater > -1) {
 				var selectedWOption = jQuery("#cd-dropdown2").find(":selected").text();
 				jQuery("#cd-dropdown2").next(".holder").text(selectedWOption);
 			}
         }).trigger('change');
 		/* ----- */
-		
+
 		/* -- Water Hardness -- */
 		jQuery("#cd-dropdown2").each(function(){
             jQuery(this).wrap("<span class='grow-guide select-wrapper'></span>");
 			jQuery(this).after("<input type='hidden' value='-1' name='waterh' id='waterh'>");
             jQuery(this).after("<span class='holder'></span>");
         });
-		
+
         jQuery("#cd-dropdown2").change(function(){
             var selectedOption = jQuery(this).find(":selected").text();
 			var selectedval = jQuery(this).find(":selected").val();
@@ -299,7 +302,7 @@
 			}
         }).trigger('change');
 		/* ----- */
-	
+
 	</script>
 
 	<script>
@@ -313,7 +316,7 @@
 		showLabels: true,
 		showScale:false
 	});
-	
+
 	jQuery('.bloom-input').jRange({
 		from: 6,
 		to: 15,
@@ -325,7 +328,7 @@
 		showScale:false
 	});
 	</script>
-    
+
     <script type="text/javascript">
 		function load() {
 			var glevel = jQuery('input[name=glevel]').val();
@@ -340,11 +343,11 @@
 			var rese = jQuery('input[name=reservior]').val();
 			var cond = jQuery('input[name=conductivity]').val();
 			var waterh = jQuery('input[name=waterh]').val();
-			
+
 			if(waterh == 5){
 				var customwater = jQuery('input[name=custom-water]').val();
 			}
-			
+
 			var error = 0;
 			if(glevel < 0){
 				jQuery(".error.glavel").html('<div style="color: #FF0000">Please select Grower Level</div>');
@@ -352,14 +355,14 @@
 			} else {
 				jQuery(".error.glavel").html('');
 			}
-			
+
 			if(sub_type < 0){
 				jQuery(".error.subtrate").html('<div style="color: #FF0000">Please select Subtrate Type</div>');
 				error ++;
 			} else {
 				jQuery(".error.subtrate").html('');
 			}
-			
+
 			if(rsize == 'Reservoir Size' || rsize == '' || isNaN(rsize)){
 				jQuery(".error.reservior-size").html('<div style="color: #FF0000">Please enter Reservoir Size</div>');
 				error ++;
@@ -369,28 +372,28 @@
 			} else {
 				jQuery(".error.reservior-size").html('');
 			}
-			
+
 			if(rese < 0){
 				jQuery(".error.reservior").html('<div style="color: #FF0000">Please select Units</div>');
 				error ++;
 			} else {
 				jQuery(".error.reservior").html('');
 			}
-			
+
 			if(cond < 0){
 				jQuery(".error.conductivity").html('<div style="color: #FF0000">Please select Conductivity</div>');
 				error ++;
 			} else {
 				jQuery(".error.conductivity").html('');
 			}
-			
+
 			if(waterh < 0){
 				jQuery(".error.waterh").html('<div style="color: #FF0000">Please select Water Hardness</div>');
 				error ++;
 			} else {
 				jQuery(".error.waterh").html('');
 			}
-			
+
 			if(waterh == 5){
 				if(customwater == '' || isNaN(customwater)) {
 					jQuery(".error.custom-water").html('<div style="color: #FF0000">Please Enter Water Hardness</div>');
@@ -402,11 +405,11 @@
 					jQuery(".error.custom-water").html('');
 				}
 			}
-						
+
 			if(error > 0) {
-				return false;	
+				return false;
 			}
-			
+
 			return jQuery.ajax({
 				url: '<?php echo get_template_directory_uri(); ?>/ajax_growguide.php',
 				type: 'POST',
@@ -419,8 +422,8 @@
 				success: function (html) {
 					jQuery(".whole-cal").html('');
 					jQuery(".whole-cal").html(html);
-					jQuery('html,body').animate({scrollTop: $("#whole-cal").offset().top},'slow');					
-					jQuery(".whole-cal .mobile-owl-carousel").owlCarousel({ 
+					jQuery('html,body').animate({scrollTop: $("#whole-cal").offset().top},'slow');
+					jQuery(".whole-cal .mobile-owl-carousel").owlCarousel({
 					  autoPlay: false,
 					  autoHeight : true,
 					  singleItem:true
@@ -428,15 +431,15 @@
 				}
 			});
 		}
-		
+
 	jQuery(document).ready(function() {
 		jQuery('#calculate').on('click',function() {
-			
+
 			/*jQuery(".whole-cal").html('');
 		    jQuery(".whole-cal").html('<div id="calloader"><div id="status">&nbsp;</div></div>');*/
 			load().done(function(){
 				jQuery('.whole-cal').on('click','input[type=checkbox][id^=stage]',function() {
-					if(this.checked) { 
+					if(this.checked) {
 						var curl = $(this).val();
 						jQuery.each(jQuery('input[name="radiohide[]"]:not(:checked)'), function() {
 							if($(this).val() == curl) {	this.checked = true; }
@@ -454,16 +457,16 @@
 							} else if(curl == 15) {
 								if($(this).val() == 7) {	this.checked = false; }
 							}
-						});	
+						});
 					}
-					
+
 					var valhide = new Array();
 					jQuery.each(jQuery('input[name="radiohide[]"]:not(:checked)'), function() {
 						valhide.push($(this).val());
 					});
-					
+
 					valhide = valhide.filter(function (e, i, arr) { return arr.lastIndexOf(e) === i; });
-					
+
 					/*var valhide = jQuery('input[name=radiohide]:checked').val();*/
 					var glevel = jQuery('input[name=glevel]').val();
 					var sub_type = jQuery('input[name=subtrate]').val();
@@ -477,11 +480,11 @@
 					var rese = jQuery('input[name=reservior]').val();
 					var cond = jQuery('input[name=conductivity]').val();
 					var waterh = jQuery('input[name=waterh]').val();
-					
+
 					if(waterh == 5){
 						var customwater = jQuery('input[name=custom-water]').val();
 					}
-			
+
 					jQuery.ajax({
 						url: '<?php echo get_template_directory_uri(); ?>/ajax_growguide.php',
 						type: 'POST',
@@ -489,8 +492,8 @@
 						cache: false,
 						success: function (html) {
 							jQuery(".whole-cal").html('');
-							jQuery(".whole-cal").html(html);					
-							jQuery(".whole-cal .mobile-owl-carousel").owlCarousel({ 
+							jQuery(".whole-cal").html(html);
+							jQuery(".whole-cal .mobile-owl-carousel").owlCarousel({
 							  autoPlay: false,
 							  autoHeight : true,
 							  singleItem:true
@@ -498,12 +501,12 @@
 						}
 					});
 				});
-			  
+
 			});
 		});
-	});	
-	</script>	
-	
+	});
+	</script>
+
     <script>
 	jQuery(document).ready(function() {
         var el = jQuery('.map-right-side');
@@ -514,10 +517,10 @@
 		{
 			var top_offset = jQuery('#search-location').offset().top;
           var scroll_top = jQuery(window).scrollTop()+60;
-		  
+
 		  var h = jQuery('#search-location').height()+(top_offset/2)+40.5;
 //		jQuery('.map-right-side').text("\n"+h+" == >"+scroll_top+"==>"+top_offset);
-		
+
           if (scroll_top > top_offset)
 		  {
 			 if(h>scroll_top)
@@ -530,8 +533,8 @@
 		}
 	});
 	</script>
-		
-	<script>	
+
+	<script>
 	// makes sure the whole site is loaded
 	jQuery(window).load(function() {
 		// will first fade out the loading animation
@@ -540,9 +543,9 @@
 		jQuery("#preloader").delay(1000).fadeOut("slow");
 	})
 	</script>
-	
+
 	<script type="text/javascript">
-	
+
 	function ValidateForm(form) {
 		var email = form.email.value;
 		if(email != "") {
@@ -574,12 +577,12 @@
 	function accordian(){
 		jQuery("#contact-retailer .retailer-open-slide").click(function () {
 			jQuery("#contact-retailer .retailer-open-slide") .toggleClass('active')
-			jQuery("#contact-retailer.contact-box .body-left").animate({	
+			jQuery("#contact-retailer.contact-box .body-left").animate({
 				height: "toggle",
 				opacity: "toggle"
 			}, "slow");
 		});
-		
+
 		jQuery("#contact-retailer .retailer-open-slide-e").click(function () {
 			jQuery("#contact-retailer .retailer-open-slide-e") .toggleClass('active')
 			jQuery("#contact-retailer.contact-box .body-right").animate({
@@ -588,8 +591,8 @@
 			}, "slow");
 		});
 	}
-	
-	function formchk(){	
+
+	function formchk(){
 		jQuery('#contact-retailer #pro-sub').on('click',function() {
 			var option = jQuery("#contact-retailer #product-option").val();
 			var name = jQuery("#contact-retailer #name").val();
@@ -599,46 +602,46 @@
 			var address = jQuery("#contact-retailer #address").val();
 			var city = jQuery("#contact-retailer #city").val();
 			var comments = jQuery("#contact-retailer #comments").val();
-			
+
 			if(option == 0) {
 				var quoteinfo = new Array();
-				
+
 				jQuery.each(jQuery('#contact-retailer input[name="quoteinfo[]"]:checked'), function() {
 				  quoteinfo.push($(this).val());
 				});
 			} else if(option == 1) {
 				var proinfo = new Array();
-			
+
 				jQuery.each(jQuery('#contact-retailer input[name="proinfo[]"]:checked'), function() {
 				  proinfo.push($(this).val());
 				});
 			} else {
 				var quoteinfo = '';
-				var proinfo = '';	
+				var proinfo = '';
 			}
-			
+
 			var retailerEmail = new Array();
-			
+
 			jQuery.each(jQuery('#contact-retailer input[name="retailerEmail[]"]:checked'), function() {
 			  retailerEmail.push($(this).val());
 			});
-			
+
 			var error = 0;
-			
+
 			if(option < 0) {
 				jQuery('<div class="form-error">This field is required.</div>').insertBefore("#contact-retailer .select-wrapper");
 				jQuery("#contact-retailer #product-option").focus();
 				/*return false;*/
 				error++;
 			}
-			
+
 			if(name == '') {
 				jQuery('<div class="form-error">This field is required.</div>').insertBefore("#contact-retailer #name");
 				jQuery("#contact-retailer #name").focus();
 				/*return false;*/
 				error++;
 			}
-			
+
 			if(email == '') {
 				jQuery('<div class="form-error">This field is required.</div>').insertBefore("#contact-retailer #email");
 				jQuery("#contact-retailer #email").focus();
@@ -653,7 +656,7 @@
 					error++;
 				}
 			}
-			
+
 			if(error <= 0) {
 				jQuery.ajax({
 					url: '<?php echo get_template_directory_uri(); ?>/ajax_emailretailer.php',
@@ -667,20 +670,20 @@
 				});
 			}
 		});
-		
+
 	}
-	
+
 	function dropchange(){
 		jQuery("#contact-retailer #product-option").each(function(){
             jQuery(this).wrap("<span class='select-wrapper'></span>");
             jQuery(this).after("<span class='holder'></span>");
         });
-		
+
         jQuery("#contact-retailer #product-option").change(function(){
             var selectedOption = jQuery(this).find(":selected").text();
             jQuery(this).next(".holder").text(selectedOption);
         }).trigger('change');
-		
+
 		jQuery('#contact-retailer #product-option option').on('click',function() {
 			dropval = jQuery(this).val();
 			if(dropval == 0) {
@@ -709,15 +712,15 @@
 			}
 		});
 	}
-	
+
 	function chkdropvals(){
 		jQuery('#contact-retailer #alldone').on('click',function() {
 			var quoteinfo = new Array();
-			
+
 			jQuery.each(jQuery('#contact-retailer input[name="quoteinfo[]"]:checked'), function() {
 			  quoteinfo.push($(this).val());
 			});
-			
+
 			if(quoteinfo.length === 0){
 				jQuery('#contact-retailer .all-prolist').prepend('<div class="form-error">Please select at-least one product.</div>');
 				return false;
@@ -725,14 +728,14 @@
 				jQuery('#contact-retailer .all-prolist').fadeOut();
 			}
 		});
-		
+
 		jQuery('#contact-retailer #prodone').on('click',function() {
 			var proinfo = new Array();
-			
+
 			jQuery.each(jQuery('#contact-retailer input[name="proinfo[]"]:checked'), function() {
 			  proinfo.push($(this).val());
 			});
-			
+
 			if(proinfo.length === 0){
 				jQuery('#contact-retailer .main-prolist').prepend('<div class="form-error">Please select product.</div>');
 				return false;
@@ -741,13 +744,13 @@
 			}
 		});
 	}
-	
+
 	function getretailers(){
 		var input = jQuery('#contact-retailer #e-zip');
 		var val = jQuery('#contact-retailer #e-zip').val();
-		
+
 		input.keydown(function(event) {
-			
+
 			// Allow: backspace, delete
 			if ($.inArray(event.keyCode, [46, 8]) !== -1 ||
 				 // Allow: home, end, left, right, down, up
@@ -755,13 +758,13 @@
 					 // let it happen, don't do anything
 					 return;
 			}
-			
+
 			// Ensure that it is a number and stop the keypress
 			if ((event.shiftKey || (event.keyCode < 48 || event.keyCode > 57)) && (event.keyCode < 96 || event.keyCode > 105)) {
 				event.preventDefault();
 			}
 		});
-		
+
 		input.focus(function() {
 			jQuery(this).val('');
 		}).blur(function() {
@@ -772,7 +775,7 @@
 			 	jQuery(this).val(newval);
 			}
 		});
-		
+
 		jQuery('#contact-retailer .refersh-list').on('click',function() {
 			jQuery.ajax({
 				url: '<?php echo get_template_directory_uri(); ?>/ajax_getretailerlist.php',
@@ -786,54 +789,54 @@
 			});
 		});
 	}
-	
+
 	function showretailers(){
 		jQuery('#contact-retailer a.viwe-more-btn').on('click',function() {
 			jQuery('#contact-retailer label.retailerlisting').removeClass('hidden');
 			jQuery(this).hide('slow');
 		});
 	}
-	
+
 	function openpopup(id, oldUrl ){
-				
+
 		var appendthis =  ("<div class='modal-overlay'></div>");
 		jQuery("body").append(appendthis);
 		jQuery(".modal-overlay").fadeTo(10, 0.7);
 		jQuery(id).fadeIn(10,function() { jQuery(this).data() });
-		
+
 		//jQuery('#product-option').dropdown({ gutter : 0 });
 
 		jQuery(".js-modal-close").click(function() {
 			var mainurl = window.location.href
 			//var mainurl = curUrl.split("#contact-retailer");
-			
+
 			if(mainurl!=oldUrl){
 				window.history.pushState({path:oldUrl},'',oldUrl);
 			}
-			
+
 			jQuery(".contact-box, .modal-overlay").fadeOut(10, function() {
 				jQuery(".modal-overlay").remove();
 			});
-			
+
 			return false;
 		});
-	 
+
 		jQuery(window).resize(function() {
 		  jQuery(".contact-box").css({
 			top: (jQuery(window).height() - jQuery(".contact-box").outerHeight()) / 2,
 			left: (jQuery(window).width() - jQuery(".contact-box").outerWidth()) / 2
 		  });
 		});
-	 
+
 		jQuery(window).resize();
 	}
-	
+
 	jQuery(document).ready(function() {
 		jQuery('#search-location').on('click','.dealer-btn',function() {
 			var storeid = jQuery(this).data('store-id');
 			var oldUrl = window.location.href;
 			var id = jQuery(this).attr('href');
-			
+
 			jQuery.ajax({
 				url: '<?php echo get_template_directory_uri(); ?>/ajax_getpopupdata.php',
 				type: 'POST',
@@ -852,7 +855,7 @@
 				}
 			});
 		});
-		
+
 		jQuery('#wpsl-dealer-details').on('click','.dealer-btn',function() {
 			var oldUrl = window.location.href;
 			var storeid = jQuery(this).data('store-id');
@@ -875,12 +878,12 @@
 				}
 			});
 		});
-		
-		
-		
+
+
+
 	});
 	</script>
-	
+
 	<!-- Login box popup -->
 	<script type="text/javascript">
 		jQuery('.head-top').on('click','a.login',function() {
@@ -888,45 +891,45 @@
 			var id = jQuery(this).attr('href');
 			loginpopup(id, oldUrl );
 		});
-		
+
 		jQuery('.footer-midd ul li.login').on('click','a',function() {
 			var oldUrl = window.location.href;
 			var id = jQuery(this).attr('href');
 			loginpopup(id, oldUrl );
 		});
-		
-		
+
+
 		function loginpopup(id, oldUrl ){
 			var appendthis =  ("<div class='modal-overlay'></div>");
 			jQuery("body").append(appendthis);
 			jQuery(".modal-overlay").fadeTo(10, 0.7);
 			jQuery(id).fadeIn(10,function() { jQuery(this).data() });
-	
+
 			jQuery(".js-modal-close").click(function() {
 				var mainurl = window.location.href
-				
+
 				if(mainurl!=oldUrl){
 					window.history.pushState({path:oldUrl},'',oldUrl);
 				}
-				
+
 				jQuery(".login-box, .modal-overlay").fadeOut(10, function() {
 					jQuery(".modal-overlay").remove();
 				});
-				
+
 				return false;
 			});
-		 
+
 			jQuery(window).resize(function() {
 			  jQuery(".login-box").css({
 				top: (jQuery(window).height() - jQuery(".login-box").outerHeight()) / 2,
 				left: (jQuery(window).width() - jQuery(".login-box").outerWidth()) / 2
 			  });
 			});
-		 
+
 			jQuery(window).resize();
 		}
 	</script>
-    
+
     <script>
 		jQuery('.disclaimer_wrapper').on('click','a.dis_a',function() {
 			var oldUrl = window.location.href;
@@ -934,56 +937,56 @@
 			//alert(jQuery(this).attr("data-disclaimer"));
 			disclaimerpopup(id, oldUrl );
 			dis_list_id = jQuery(this).attr("data-disclaimer");
-			
+
 			jQuery('ul.tcom-disclaimers-list li').removeClass( "active" );
 			jQuery('ul.tcom-disclaimers-list li.'+dis_list_id).addClass( "active" );
-			
+
 			jQuery('div#disc_popup.contact-box .contact-body').animate({
 			 scrollTop:jQuery('li.first').position().top }, 0);
-			
-			
+
+
 			jQuery('div#disc_popup.contact-box .contact-body').animate({
-			 scrollTop:jQuery('li.'+dis_list_id).position().top 
+			 scrollTop:jQuery('li.'+dis_list_id).position().top
 			}, 1000);
-				
-			
-				
+
+
+
 		});
 
 
-    
+
     function disclaimerpopup(id, oldUrl ){
 			var appendthis =  ("<div class='modal-overlay'></div>");
 			jQuery("body").append(appendthis);
 			jQuery(".modal-overlay").fadeTo(100, 0.7);
 			jQuery(id).fadeIn(100,function() { jQuery(this).data() });
-	
+
 			jQuery("a.js-modal-close.close,.modal-overlay").click(function() {
 				var mainurl = window.location.href
-				
+
 				if(mainurl!=oldUrl){
 					window.history.pushState({path:oldUrl},'',oldUrl);
 				}
-				
+
 				jQuery("div#disc_popup, .modal-overlay").fadeOut(100, function() {
 					jQuery(".modal-overlay").remove();
 				});
-				
+
 				return false;
 			});
-		 
+
 			/*jQuery(window).resize(function() {
 			  jQuery(".login-box").css({
 				top: (jQuery(window).height() - jQuery(".login-box").outerHeight()) / 2,
 				left: (jQuery(window).width() - jQuery(".login-box").outerWidth()) / 2
 			  });
 			});
-		 
+
 			jQuery(window).resize();*/
 		}
     </script>
-    
-	
+
+
 	<script>
 jQuery(function(){
 	jQuery('.icon-color a').click(function(){
@@ -1009,7 +1012,7 @@ jQuery(function(){
 </script>
 
 <script type="text/javascript">
-	function suggestPlaces() {     
+	function suggestPlaces() {
 		var input = (document.getElementById('wpsl-search-input'));
 		var types = document.getElementById('type-selector');
 		var autocomplete = new google.maps.places.Autocomplete(input, {componentRestrictions: {country: 'au'}} );
@@ -1018,13 +1021,26 @@ jQuery(function(){
 <!--<script type="text/javascript">
 jQuery(document).ready(function(e) {
 jQuery(".pp_content").innerHTML("dhruv");
-	
+
 });
 </script>
---><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCHVP3APR_wVplF9z6GS5o5c4AeOTtekE&libraries=places"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/markerwithlabel.js"></script>
- 
-
+-->
+<?php $post_slug=$post->post_name; ?>
+<?php if($post_slug == 'find-retailer' || is_front_page()):?>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCHVP3APR_wVplF9z6GS5o5c4AeOTtekE&libraries=places"></script>
+    
+<?php endif; ?>
+<?php if($post_slug == 'find-retailer' || is_front_page() || $post_slug == 'find-retailer-results'):?>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/markerwithlabel.js"></script>
+<?php endif; ?>
+    <?php if (is_front_page()):?>
+    <style>
+        .pac-container{
+            top: inherit !important;
+            bottom: 51px;
+        }
+    </style>
+    <?php endif;?>
 <script>
 	jQuery(document).ready(function() {
         var el = jQuery('.proimg');
@@ -1032,12 +1048,15 @@ jQuery(".pp_content").innerHTML("dhruv");
         jQuery(window).scroll(function()
 		{
 
+			if (jQuery('.rel_products_main').length == 0)
+				return;
+
 			var top_offset = jQuery('.rel_products_main').offset().top;
           var scroll_top = jQuery(window).scrollTop()+220;
-		  
+
 		  var h = jQuery('.rel_products_main').height()+(top_offset/2)-220;
 		jQuery('.map-right-side').text("\n"+h+" == >"+scroll_top+"==>"+top_offset);
-		
+
           if (scroll_top > top_offset)
 		  {
 			 if(h>scroll_top)
@@ -1049,7 +1068,7 @@ jQuery(".pp_content").innerHTML("dhruv");
         });
 	});
 	</script>
-<script>    
+<script>
 
 
 equalheight = function(container){
@@ -1097,7 +1116,7 @@ $(window).resize(function(){
 });
 
 
-if(jQuery.browser.webkit) {
+if(jQuery.browser && jQuery.browser.webkit) {
     jQuery('input#account_password').attr('autocomplete', 'off');
 }
 
@@ -1137,17 +1156,33 @@ $('.quantity input.input-text.qty.text').on('keypress keydown keyup', function (
 				   "cell_border_768":0,
 				   "lightbox_enable":true};
 	options.el = jQuery(id);
-	var initialize = function(){
-		setTimeout(function(){
-			new UberGrid(options);
-		}, 1);
-	};
-	if (typeof(UberGrid) != 'undefined' && UberGrid) {
-		initialize();
-	} else {
-		jQuery(initialize);
-	}
+	if(options.el.length) {
+        var initialize = function () {
+            setTimeout(function () {
+                new UberGrid(options);
+            }, 1);
+        };
+        if (typeof(UberGrid) != 'undefined' && UberGrid) {
+            initialize();
+        } else {
+            jQuery(initialize);
+        }
+    }
 })();
+
+$('.subscribe-form .sub-btn input').attr('disabled', 'disabled');
+
+function imNotARobot() {
+
+	$('.subscribe-form .sub-btn input').removeAttr('disabled');
+
+}
+
+function iMightBetARobot() {
+	$('.subscribe-form .sub-btn input').attr('disabled', 'disabled');
+}
+
+
 </script>
 
 <script>
@@ -1158,6 +1193,19 @@ $("a#galleryImage4").click(function(){$("a#baseGalleryImage4").trigger("click");
 $("a#galleryImage5").click(function(){$("a#baseGalleryImage5").trigger("click");});
 $("a#galleryImage6").click(function(){$("a#baseGalleryImage6").trigger("click");});
 </script>
+
+<style type="text/css">
+	[disabled] {
+
+	}
+
+	.subscribe-form .sub-btn input[disabled]:hover, .subscribe-form .sub-btn input[disabled]:active, .subscribe-form .sub-btn input[disabled]:focus {
+	  background-color: #fff;
+	  color: #f6a704;
+	  cursor: not-allowed;
+	}
+
+</style>
 
 </body>
 </html>

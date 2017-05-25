@@ -76,7 +76,7 @@
 
 <center>
 
-<div class="icon"><img src="http://dev.reiziger.com/wp-content/uploads/2016/01/icon3.png"></div>
+<div class="icon"><img src="http://www.reiziger.com/wp-content/uploads/2016/01/icon3.png"></div>
 
 <span>Articles</span>
 
@@ -90,7 +90,7 @@
 
 </div>
 
-<img src="http://dev.reiziger.com/wp-content/uploads/2016/01/articles.jpg">
+<img src="http://www.reiziger.com/wp-content/uploads/2016/01/articles.jpg">
 
 </div>
 

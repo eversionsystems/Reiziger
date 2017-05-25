@@ -35,7 +35,7 @@
 <div class="wrapper">
 <article>
 <center>
-<div class="icon"><img src="http://dev.reiziger.com/wp-content/uploads/2016/01/icon2.png"></div>
+<div class="icon"><img src="http://www.reiziger.com/wp-content/uploads/2016/01/icon2.png"></div>
 <span>Reiziger TV</span>
 </center>
 <h2>Helping growers maintain<br>
@@ -45,7 +45,7 @@ better gardens.</h2>
 
 
 </div>
-<img src="http://dev.reiziger.com/wp-content/uploads/2016/01/tv.jpg">
+<img src="http://www.reiziger.com/wp-content/uploads/2016/01/tv.jpg">
 </div>
 
 <div id="reziger-article" class="section-help-ariticles section-help-tv-new single">

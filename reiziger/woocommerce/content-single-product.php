@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	{
 		global $post;
 		$terms = get_the_terms( $post->ID, 'product_cat' );
-		foreach ($terms as $term) 
+		foreach ($terms as $term)
 		{
 			$product_cat_id = $term->term_id;
 			$product_cat = $term->name;
@@ -58,11 +58,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @hooked woocommerce_show_product_sale_flash - 10
 		 * @hooked woocommerce_show_product_images - 20
 		 */
-		 ### KAMLESH KKK		  
+		 ### KAMLESH KKK
 				do_action( 'woocommerce_before_single_product_summary' );	?>
-	
+
     </div>
-    
+
 
 
 	<div class="summary entry-summary">
@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @hooked woocommerce_output_product_data_tabs - 10
 		 * @hooked woocommerce_upsell_display - 15
 		 * @hooked woocommerce_output_related_products - 20
-		 */		
+		 */
 		do_action( 'woocommerce_after_single_product_summary' );
 	?>
 		<?php
@@ -94,7 +94,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				 echo "<div class='product_area ".$cls."'>";
 					do_action( 'woocommerce_single_product_summary' );
 				echo "</div>";
-			 
+
+				echo "<span class='shop-coming-soon-notice'>Online Purchase Available Soon</span>";
+
 		?>
 
 	</div><!-- .summary -->
@@ -114,7 +116,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @hooked woocommerce_upsell_display - 15
 		 * @hooked woocommerce_output_related_products - 20
 		 */
-		
+
 		## KAMLESH KKK - Call to Up Sell Prpduct
 		do_action( 'woocommerce_after_single_product_summary' );
 	?>

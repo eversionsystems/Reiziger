@@ -39,57 +39,66 @@
 <title>
 <?php wp_title( '|', true, 'right' ); ?>
 </title>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NGPJZ8');</script>
+<!-- End Google Tag Manager -->
+
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
 <?php //Load Our extra stylesheet.
-		
+
 		wp_enqueue_style( 'reiziger-range', get_template_directory_uri() . '/css/jquery.range.css', array());
 		//wp_enqueue_style( 'reiziger-slider', get_template_directory_uri() . '/css/superslides.css', array());
 		?>
 <link rel='stylesheet' id='reiziger-slider-css'  href='<?php echo get_template_directory_uri();?>/css/superslides.css?ver=<?php echo time(); ?>' type='text/css' media='all' />
 <?php
-		
+
 		wp_enqueue_style( 'reiziger-style', get_stylesheet_uri() );
 		//wp_enqueue_style( 'reiziger-mainstyle', get_template_directory_uri() . '/css/template.css', array());
 		?>
 <link rel='stylesheet' id='reiziger-mainstyle-css'  href='<?php echo get_template_directory_uri();?>/css/template.css?ver=<?php echo time(); ?>' type='text/css' media='all' />
 <?php
-		
+
 		//wp_enqueue_style( 'reiziger-woocommerce-custom', get_template_directory_uri() . '/css/woocommerce.css', array());
 		?>
 <link rel='stylesheet' id='reiziger-woocommerce-custom'  href='<?php echo get_template_directory_uri();?>/css/woocommerce.css?ver=<?php echo time(); ?>' type='text/css' media='all' />
 <?php
-		
+
 		wp_enqueue_style( 'reiziger-font-awesome', get_template_directory_uri() . '/css/font-awesome.css', array());
 		//wp_enqueue_style( 'reiziger-responsive', get_template_directory_uri() . '/css/responsive.css', array());
 		?>
 <link rel='stylesheet' id='reiziger-responsive-css'  href='<?php echo get_template_directory_uri();?>/css/responsive.css?ver=<?php echo time(); ?>' type='text/css' media='all' />
 <link rel='stylesheet' href='<?php echo get_template_directory_uri();?>/css/new_responsive.css?ver=<?php echo time(); ?>' type='text/css' media='all' />
 <?php
-		
-		
-		
-		
+
+
+
+
 		if (!is_admin()) {
 			// jQuery (optional loading via Google CDN)
 			wp_deregister_script('jquery');
-			wp_register_script('jquery', ('http://code.jquery.com/jquery-1.11.1.min.js'), false);  
+			wp_register_script('jquery', ('http://code.jquery.com/jquery-1.11.1.min.js'), false);
 			wp_enqueue_script('jquery');
 		}
-		
+
 		wp_enqueue_script('jquery-ui', ('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js'), false);
+		wp_enqueue_script('recaptcha', ('https://www.google.com/recaptcha/api.js'), false);
 		wp_enqueue_script('reiziger-modernizr', get_template_directory_uri() . '/js/modernizr.custom.js', false);
 		wp_enqueue_script('reiziger-scrolltofixed-script', get_template_directory_uri() . '/js/jquery-scrolltofixed.js', null, time(), true);
 		wp_enqueue_script('reiziger-slider-script', get_template_directory_uri() . '/js/jquery.superslides.js', null,null, true);
 		wp_enqueue_script('reiziger-touch-script', get_template_directory_uri() . '/js/jquery.touchSwipe.js', null, null, true);
 		//wp_enqueue_script('reiziger-dropdown-script', get_template_directory_uri() . '/js/jquery.dropdown.js', null, null, true);
 		wp_enqueue_script('reiziger-range-script', get_template_directory_uri() . '/js/jquery.range.js', null, null, true);
-		
-		
-		
+
+
+
 		wp_head();
 	?>
 <script type="text/javascript" language="javascript">
@@ -105,7 +114,7 @@
 	});
 	</script>
 <script type="text/javascript" language="javascript">
-	jQuery(document).ready(function() {		
+	jQuery(document).ready(function() {
 		jQuery(document).on('click','ul.lang-block li', function(event) {
 			id = jQuery(this).attr('id');
 			img = jQuery('.location').find("img.flag");
@@ -119,7 +128,7 @@
 		jQuery(document).on('click','a.mygallery', function(event) {
 			href = jQuery(this).attr('href');
 			jQuery.ajax({
-			  url: href,			  
+			  url: href,
 			  success: function(data) {
 				if (data){
 				  window.location.reload(); // This is not jQuery but simple plain ol' JS
@@ -135,35 +144,35 @@
 <?php if($_REQUEST['success'] == 1) { ?>
 <script type="text/javascript">
 	jQuery(document).ready(function() {
-	
+
 		var appendthis =  ("<div class='modal-overlay'></div>");
 		jQuery("body").append(appendthis);
 		jQuery(".modal-overlay").fadeTo(10, 0.7);
 		jQuery('#popup').fadeIn(10,function() { $(this).data() });
-	  
-	  
+
+
 		jQuery(".js-modal-close").click(function() {
 			var pageurl = $(this).attr('href');
 			if(pageurl!=window.location){
 				window.history.pushState({path:pageurl},'',pageurl);
 			}
-			
+
 			jQuery(".modal-box, .modal-overlay").fadeOut(10, function() {
 				jQuery(".modal-overlay").remove();
 			});
-			
+
 			return false;
 		});
-	 
+
 		jQuery(window).resize(function() {
 		  jQuery(".modal-box").css({
 			top: (jQuery(window).height() - jQuery(".modal-box").outerHeight()) / 2,
 			left: (jQuery(window).width() - jQuery(".modal-box").outerWidth()) / 2
 		  });
 		});
-	 
+
 		jQuery(window).resize();
-	 
+
 	});
 	</script>
 <?php } ?>
@@ -173,34 +182,34 @@
 
 <script type="text/javascript">
 	jQuery(document).ready(function() {
-		
+
 		jQuery('.content-popup').on("click",function(){
-	
+
 			var appendthis =  ("<div class='modal-overlay'></div>");
 			var id = $(this).attr('href');
-			
+
 			jQuery("body").append(appendthis);
 			jQuery(".modal-overlay").fadeTo(10, 0.7);
 			jQuery(id).fadeIn(10,function() { $(this).data() });
-		  
-		  
-			jQuery(".js-modal-close").click(function() {						
+
+
+			jQuery(".js-modal-close").click(function() {
 				jQuery(".modal-box, .modal-overlay").fadeOut(10, function() {
 					jQuery(".modal-overlay").remove();
 				});
-				
+
 				return false;
 			});
-		 
+
 			jQuery(window).resize(function() {
 			  jQuery(".modal-box").css({
 				top: (jQuery(window).height() - jQuery(".modal-box").outerHeight()) / 2,
 				left: (jQuery(window).width() - jQuery(".modal-box").outerWidth()) / 2
 			  });
 			});
-		 
+
 			jQuery(window).resize();
-		 
+
 		});
 	});
 	</script>
@@ -208,8 +217,8 @@
 <link rel='stylesheet' href='<?php echo get_template_directory_uri();?>/disclaimer_modalbox/css/disclaimer_style.css?ver=<?php echo time(); ?>' type='text/css' media='all' />
 
 <style>
-.wrapper.vertical-align .col-md-4.center-block, 
-.wrapper.vertical-align .col-md-5.center-block, 
+.wrapper.vertical-align .col-md-4.center-block,
+.wrapper.vertical-align .col-md-5.center-block,
 .wrapper.vertical-align .col-md-6.center-block{
        top: 49%;
     left: 50%;
@@ -217,7 +226,7 @@
 	-moz-transform:translate(-50%,-60%);
 	-o-transform:translate(-50%,-60%);
     transform: translate(-50%,-60%);
-	
+
     position: absolute;    min-width: 300px;
 }
 
@@ -230,7 +239,7 @@
 <?php if($_REQUEST['success'] == 1) { ?>
 <?php $current_url = explode("?", $_SERVER['REQUEST_URI']);	?>
 <div id="popup" class="modal-box">
-  <header> <a href="<?php echo $current_url[0]; ?>" class="js-modal-close close">Ã—</a> </header>
+  <header> <a href="<?php echo $current_url[0]; ?>" class="js-modal-close close"><i class="fa fa-times" aria-hidden="true"></i></a> </header>
   <div class="modal-body">
     <p>Thanks for registering with Reiziger. <br>
       The Reiziger craftsmen will be in touch soon...</p>
@@ -240,31 +249,36 @@
 <?php } ?>
 <div class="main-body">
 <!-- Preloader --><!--<div id="preloader"><div id="status">&nbsp;</div></div>-->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGPJZ8"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <?php if ( is_active_sidebar( 'top-header' ) ) : ?>
 <div class="head-top">
   <div class="wrapper clearfix">
     <?php //dynamic_sidebar( 'top-header' ); ?>
     <ul>
-      <li><span><a href="mailto:customercare@reiziger.com"><i class="fa fa-envelope-o"></i> customercare@reiziger.com</a></span><span><i class="fa fa-phone"></i> 1800 734 944</span> </li>
+      <li><span><a href="mailto:customercare@reiziger.com"><i class="fa fa-envelope-o"></i>customercare@reiziger.com</a></span> <span> <i class="fa fa-phone"></i> 1800 734 944</span> </li>
       <?php     $UserSignIn = 0;
                 if(is_user_logged_in()){
 				   $current_user = wp_get_current_user();
 				   $currentUserId = $current_user->data->ID;
-	
+
 				   $user_info = get_userdata($currentUserId);
-				   $LoggedInUserFirstName = $user_info->first_name; 
+				   $LoggedInUserFirstName = $user_info->first_name;
 				   $LoggedInUserLoginName = $current_user->data->user_login;
-				   
+
 				   $NameForLogoutLink = "";
-				   
+
 				   if(isset($LoggedInUserFirstName)){
 				    $NameForLogoutLink = $LoggedInUserFirstName;
 				   }else{
 				    $NameForLogoutLink = $LoggedInUserLoginName;
 				   }
-					
+
 				   $UserSignIn = 1;
-					
+
                     ?>
       <li><a href="<?php echo get_home_url(); ?>/my-account" class=""><?php echo $NameForLogoutLink; ?></a> | <a href="<?php echo get_home_url(); ?>/my-account/customer-logout/" class="">Logout</a></li>
       <?php
@@ -282,7 +296,7 @@
           </ul>
         </div>
       </li>
-      <li> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> </li>
+      <li> <a href="https://www.facebook.com/ReizigerHolland" target="_blank"><i class="fa fa-facebook"></i></a> </li>
     </ul>
   </div>
 </div>
@@ -299,11 +313,11 @@
       <div class="desk-bar1">
        <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top"><span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span> </span> <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom"> <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span></span>
       </div>
-      <div class="navication"> 
+      <div class="navication">
         <div class="desk-menu">
           <?php wp_nav_menu(array('theme_location' => 'main-menu',
 		                          'container' => '',
-								  'container_class' => '', 
+								  'container_class' => '',
 								  'menu_class' => 'nav',
 								  'menu_id' => ' ')); ?>
         </div><!-- .desk-menu-->
@@ -313,10 +327,10 @@
         <?php global $woocommerce;
 				$cart_url = $woocommerce->cart->get_cart_url();
 				$cart_empty_class = '';
-				if(($woocommerce->cart->cart_contents_count)==0){$cart_empty_class = 'cartisempty';} ?>                
+				if(($woocommerce->cart->cart_contents_count)==0){$cart_empty_class = 'cartisempty';} ?>
          <a href="<?php echo $cart_url?>" class="procount <?php echo $cart_empty_class; ?>">
           <span class="cart-count"> <?php echo $woocommerce->cart->cart_contents_count; ?></span>
-         </a> 
+         </a>
 <?php //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ?>
 <?php //if($_SERVER['REMOTE_ADDR']=='113.193.235.133'){  ?>
 <style>
@@ -362,7 +376,7 @@ header#fixmenu-desk.scroll-to-fixed-fixed .cart_menu{top: 44px !important;}
    <li><a href="<?php echo $cart_url?>">Bag (<?php echo $woocommerce->cart->cart_contents_count; ?>)</a></li>
    <li><a href="<?php echo get_home_url(); ?>/my-account/view-order/">Orders</a></li>
    <li><a href="<?php echo get_home_url(); ?>/my-account">Account</a></li>
-   <?php if($UserSignIn==1){?> 
+   <?php if($UserSignIn==1){?>
    <li><a href="<?php echo get_home_url(); ?>/my-account/customer-logout/">Sign out</a></li>
    <?php }else{ ?>
    <li><a href="<?php echo get_home_url(); ?>/my-account">Sign in</a></li>
@@ -378,14 +392,14 @@ $("ul#ubermenu-nav-main-2-main-menu").hover(function(){ $(".cart_menu").slideUp(
 
 <?php //} ?>
 <?php //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~?>
-         
-        </div><!-- .navication-->     
+
+        </div><!-- .navication-->
     </div><!-- .wrapper clearfix-->
   </div><!-- .midd-header-->
 </header>
-<?php 
+<?php
 	global $post;
-	if($post->post_parent == 8){ 
+	if($post->post_parent == 8){
 		$mypages = get_post(30);
 		echo '<div class="inner-blue">';
 		$content = $mypages->post_content;
@@ -394,8 +408,8 @@ $("ul#ubermenu-nav-main-2-main-menu").hover(function(){ $(".cart_menu").slideUp(
 		$content = apply_filters( 'the_content', $content );
 		echo $content;
 		echo '</div>';
-	} 
-	else if($post->post_parent == 288){ 
+	}
+	else if($post->post_parent == 288){
 		$mypages = get_post(450);
 		echo '<div class="inner-blue">';
 		$content = $mypages->post_content;
@@ -404,8 +418,8 @@ $("ul#ubermenu-nav-main-2-main-menu").hover(function(){ $(".cart_menu").slideUp(
 		$content = apply_filters( 'the_content', $content );
 		echo $content;
 		echo '</div>';
-	} 
-	else if($post->post_parent == 738){ 
+	}
+	else if($post->post_parent == 738){
 		$mypages = get_post(750);
 		echo '<div class="inner-blue">';
 		$content = $mypages->post_content;
@@ -414,8 +428,8 @@ $("ul#ubermenu-nav-main-2-main-menu").hover(function(){ $(".cart_menu").slideUp(
 		$content = apply_filters( 'the_content', $content );
 		echo $content;
 		echo '</div>';
-	} 
-	else if($post->post_parent == 2043){ 
+	}
+	else if($post->post_parent == 2043){
 		$mypages = get_post(2306);
 		echo '<div class="inner-blue">';
 		$content = $mypages->post_content;
@@ -425,7 +439,7 @@ $("ul#ubermenu-nav-main-2-main-menu").hover(function(){ $(".cart_menu").slideUp(
 		echo $content;
 		echo '</div>';
 	}
-	else if($post->post_parent == 2049){ 
+	else if($post->post_parent == 2049){
 		$mypages = get_post(2594);
 		echo '<div class="inner-blue">';
 		$content = $mypages->post_content;
@@ -435,9 +449,9 @@ $("ul#ubermenu-nav-main-2-main-menu").hover(function(){ $(".cart_menu").slideUp(
 		echo $content;
 		echo '</div>';
 	}
-	else if($post->post_parent == 2041){ 
+	else if($post->post_parent == 2041){
 		$mypages = get_post(2757);
-		echo '<div class="inner-blue">';	
+		echo '<div class="inner-blue">';
 		$content = $mypages->post_content;
 		if ( ! $content ) // Check for empty page
 			continue;
@@ -445,9 +459,9 @@ $("ul#ubermenu-nav-main-2-main-menu").hover(function(){ $(".cart_menu").slideUp(
 		echo $content;
 		echo '</div>';
 	}
-	else if($post->post_parent == 2036){ 
+	else if($post->post_parent == 2036){
 		$mypages = get_post(2952);
-		echo '<div class="inner-blue">';	
+		echo '<div class="inner-blue">';
 		$content = $mypages->post_content;
 		if ( ! $content ) // Check for empty page
 			continue;
@@ -455,9 +469,9 @@ $("ul#ubermenu-nav-main-2-main-menu").hover(function(){ $(".cart_menu").slideUp(
 		echo $content;
 		echo '</div>';
 	}
-	else if($post->post_parent == 2016){ 
+	else if($post->post_parent == 2016){
 		$mypages = get_post(3077);
-		echo '<div class="inner-blue">';	
+		echo '<div class="inner-blue">';
 		$content = $mypages->post_content;
 		if ( ! $content ) // Check for empty page
 			continue;
@@ -465,9 +479,9 @@ $("ul#ubermenu-nav-main-2-main-menu").hover(function(){ $(".cart_menu").slideUp(
 		echo $content;
 		echo '</div>';
 	}
-	else if($post->post_parent == 4124){ 
+	else if($post->post_parent == 4124){
 		$mypages = get_post(4131);
-		echo '<div class="inner-blue">';	
+		echo '<div class="inner-blue">';
 		$content = $mypages->post_content;
 		if ( ! $content ) // Check for empty page
 			continue;
@@ -492,7 +506,7 @@ $("ul#ubermenu-nav-main-2-main-menu").hover(function(){ $(".cart_menu").slideUp(
       <?php global $woocommerce;
 				      $cart_url = $woocommerce->cart->get_cart_url();
 					  if($woocommerce->cart->cart_contents_count==0){ $cart_empty_class = 'cartisempty'; }
-					  
+
 					  ?>
       <a href="<?php echo $cart_url?>" class="procount <?php echo $cart_empty_class; ?>"><span class="cart-count <?php echo $cart_empty_class; ?>">
       <?php if(($woocommerce->cart->cart_contents_count)>0){ echo $woocommerce->cart->cart_contents_count; }?>
@@ -536,7 +550,7 @@ header#fixmenu-desk.scroll-to-fixed-fixed .cart_menu{top: 44px !important;}
    <li><a href="<?php echo $cart_url?>">Bag (<?php echo $woocommerce->cart->cart_contents_count; ?>)</a></li>
    <li><a href="<?php echo get_home_url(); ?>/my-account/view-order/">Orders</a></li>
    <li><a href="<?php echo get_home_url(); ?>/my-account">Account</a></li>
-   <?php if($UserSignIn==1){?> 
+   <?php if($UserSignIn==1){?>
    <li><a href="<?php echo get_home_url(); ?>/my-account/customer-logout/">Sign out</a></li>
    <?php }else{ ?>
    <li><a href="<?php echo get_home_url(); ?>/my-account">Sign in</a></li>
@@ -556,7 +570,7 @@ $("ul#ubermenu-nav-main-11").hover(function(){ $(".cart_menu_mobile").slideUp();
   </div>
 </div>
 <script>
-jQuery(window).load(function(){ 
+jQuery(window).load(function(){
  if(jQuery(window).width() <= 765){
 	 var naviHeight = jQuery('header#fixmenu-mobi div.midd-header').height();
 	 var newNavHeight = naviHeight+7;
@@ -565,12 +579,12 @@ jQuery(window).load(function(){
 });
 
 
-jQuery(window).resize(function(){ 
+jQuery(window).resize(function(){
 if(jQuery(window).width() <= 765){
 	 var naviHeight = jQuery('header#fixmenu-mobi div.midd-header').height();
 	 var newNavHeight = naviHeight+7;
 	 var page_win_width = jQuery(window).width();
  }
 });
-</script> 
+</script>
 

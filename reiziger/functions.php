@@ -2217,4 +2217,446 @@ function reduce_woocommerce_min_strength_requirement( $strength ) {
     return 0;
 }
 add_filter( 'woocommerce_min_password_strength', 'reduce_woocommerce_min_strength_requirement' );
+
+add_filter( 'wpsl_templates', 'custom_templates' );
+function custom_templates( $templates ) {
+
+    /**
+     * The 'id' is for internal use and must be unique ( since 2.0 ).
+     * The 'name' is used in the template dropdown on the settings page.
+     * The 'path' points to the location of the custom template,
+     * in this case the folder of your active theme.
+     */
+    $templates[] = array (
+        'id'   => 'reiziger',
+        'name' => 'Reiziger template',
+        'path' => get_stylesheet_directory() . '/' . 'wpsl-templates/reiziger.php',
+    );
+
+    return $templates;
+}
+
+add_filter( 'wpsl_listing_template', 'custom_listing_template' );
+
+function custom_listing_template() {
+
+    global $wpsl, $wpsl_settings;
+    
+        $listing_template = '<li  data-store-id="<%= id %>" data-index="<%= row %>" >' . "\r\n";
+        $listing_template .= "\t\t\t\t" .'<div class="wpsl-result-list-index" id="info<%= id %>"><%= row %></div>' . "\r\n";
+		$listing_template .= "\t\t\t\t" .'<input type="hidden" value="<%= id %>" id="retailer-id" />' . "\r\n";
+        $listing_template .= "\t\t" . '<div class="wpsl-store-location">' . "\r\n";
+        $listing_template .= "\t\t\t\t" . custom_store_header_template( 'listing' ) . "\r\n"; // Check which header format we use
+        $listing_template .= "\t\t\t\t" . '<a class="map-direction" href="#retailerCode=<%= id %>"><span class="wpsl-street"><%= address %></span>' . "\r\n";
+        $listing_template .= "\t\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
+        $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address2 %></span>' . "\r\n";
+        $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+        $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n"; // Use the correct address format
+        $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span></a>' . "\r\n";
+        /*$listing_template .= "\t\t\t" . '</p>' . "\r\n";
+		$listing_template .= "\t\t\t\t" . '<% if ( stock ) { %>' . "\r\n";
+        $listing_template .= "\t\t\t\t" . '<span class="wpsl-stock"><%= stock %></span>' . "\r\n";
+        $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";*/
+        $listing_template .= "\t\t\t" . wpsl_more_info_template() . "\r\n"; // Check if we need to show the 'More Info' link and info
+        $listing_template .= "\t\t" . '</div>' . "\r\n";
+        $listing_template .= "\t\t" . '<div class="wpsl-direction-wrap">' . "\r\n";
+        
+        if ( !$wpsl_settings['hide_distance'] ) {
+            $listing_template .= "\t\t\t" . '<%= distance %> ' . esc_html( $wpsl_settings['distance_unit'] ) . '' . "\r\n";
+        }
+        
+        $listing_template .= "\t\t\t" . '<%= createDirectionUrl() %>' . "\r\n"; 
+        $listing_template .= "\t\t" . '</div>' . "\r\n";
+        $listing_template .= "\t" . '</li>';
+
+    return $listing_template;
+}
+
+add_filter( 'wpsl_more_info_template', 'custom_more_info_template' );
+function custom_more_info_template() {
+    global $wpsl, $wpsl_settings;
+    if ( $wpsl_settings['more_info'] ) {
+        $more_info_url = '#';
+
+        if ( $wpsl_settings['template_id'] == 'default' && $wpsl_settings['more_info_location'] == 'info window' ) {
+            $more_info_url = '#wpsl-search-wrap';
+        }
+
+        if ( $wpsl_settings['more_info_location'] == 'store listings' ) {
+            $more_info_template = '<% if ( !_.isEmpty( phone ) || !_.isEmpty( fax ) || !_.isEmpty( email ) ) { %>' . "\r\n";
+			$more_info_template .= "\t\t\t\t" . '<% if ( email ) { %>' . "\r\n";
+            $more_info_template .= "\t\t\t\t" . '<a class="dealer-btn" href="#contact-retailer" data-store-id="<%= id %>">Contact Retailer</a>' . "\r\n";
+            $more_info_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+            $more_info_template .= "\t\t\t" . '<p class="store-info"><a class="wpsl-store-details wpsl-store-listing" href="#wpsl-id-<%= id %>">' . esc_html( $wpsl->i18n->get_translation( 'more_label', __( 'More info', 'wpsl' ) ) ) . '</a></p>' . "\r\n";
+            $more_info_template .= "\t\t\t" . '<div id="wpsl-id-<%= id %>" class="wpsl-more-info-listings">' . "\r\n";
+            $more_info_template .= "\t\t\t\t" . '<% if ( description ) { %>' . "\r\n";
+            /*$more_info_template .= "\t\t\t\t" . '<%= description %>' . "\r\n";*/
+            $more_info_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+            //$more_info_template .= "\t\t\t\t" . '<p>' . "\r\n";
+            $more_info_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
+            $more_info_template .= "\t\t\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'fax_label', __( 'Fax', 'wpsl' ) ) ) . '</strong>: <%= fax %></span>' . "\r\n";
+            $more_info_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+            //$more_info_template .= "\t\t\t\t" . '</p>' . "\r\n";
+
+            if ( !$wpsl_settings['hide_hours'] ) {
+                $more_info_template .= "\t\t\t\t" . '<% if ( hours ) { %>' . "\r\n";
+                $more_info_template .= "\t\t\t\t" . '<div class="open-time expand"><strong>Today\'s hours</strong><table class="wpsl-opening-hours">';
+                $more_info_template .= "\t\t\t\t" . '<tr><td><%= today_hours %></td></tr></table></div>';
+                $more_info_template .= "\t\t\t\t" . '<div class="wpsl-store-hours"><%= hours %></div>' . "\r\n";
+                $more_info_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+            }
+			
+			$more_info_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
+            $more_info_template .= "\t\t\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'phone_label', __( 'Phone', 'wpsl' ) ) ) . '</strong> <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
+            $more_info_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+
+            $more_info_template .= "\t\t\t" . '</div>' . "\r\n"; 
+			
+			$more_info_template .= '<% if ( url ) { %>' . "\r\n";
+			$more_info_template .= '<div class="dealer-web"><a class="wpsl-view-dealer" href="#retailerCode=<%= id %>">Retailer Details ></a></div>' . "\r\n";
+			$more_info_template .= "\t\t\t" . '<% } %>';
+			
+			/*$more_info_template .= '<div class="map-btns">' . "\r\n";
+			$more_info_template .= "\t\t\t" ;
+			$more_info_template .= '<a href="#retailerCode=<%= id %>" class="map-direction">Directions</a>' . "\r\n";
+			$more_info_template .= "\t\t\t" ;
+			$more_info_template .= '<a href="#" class="map-save">Save</a>' . "\r\n";
+			$more_info_template .= "\t\t\t" ;
+			$more_info_template .= '<a href="#" class="map-print">Print</a>' . "\r\n";
+			$more_info_template .= "\t\t\t" ;
+			$more_info_template .= '<a href="#" class="map-snd-phone">Send to your phone</a>' . "\r\n";
+			$more_info_template .= "\t\t\t" ;
+			$more_info_template .= '<a href="#" class="map-share">Share</a></div>' . "\r\n";
+			$more_info_template .= "\t\t\t" ;*/
+			
+            $more_info_template .= "\t\t\t" . '<% } %>';
+
+        } else {
+            $more_info_template = '<p><a class="wpsl-store-details" href="' . $more_info_url . '">' . esc_html( $wpsl->i18n->get_translation( 'more_label', __( 'More info', 'wpsl' ) ) ) . '</a></p>';
+        }
+        return $more_info_template;
+    }
+}
+
+add_filter( 'wpsl_store_header_template', 'custom_store_header_template' );
+function custom_store_header_template($location = 'info_window') {
+    global $wpsl_settings;
+
+    if ( $wpsl_settings['new_window'] ) {
+        $new_window = ' target="_blank"';
+    } else {
+        $new_window = '';
+    }
+
+    /* To keep the code readable in the HTML source we ( unfortunately ) need to adjust the 
+     * amount of tabs in front of it based on the location were it is shown. 
+     */
+    if ( $location == 'listing') {
+        $tab = "\t\t\t\t";    
+    } else {
+        $tab = "\t\t\t";                 
+    }
+
+    if ( $wpsl_settings['permalinks'] ) {
+        $header_template = '<strong><a' . $new_window . ' href="<%= permalink %>"><%= store %></a></strong>';
+    } else {
+        $header_template = '<% if ( wpslSettings.storeUrl == 1 && url ) { %>' . "\r\n";
+        $header_template .= $tab . '<strong><a' . $new_window . ' href="<%= url %>"><%= store %></a></strong>' . "\r\n";
+        $header_template .= $tab . '<% } else { %>' . "\r\n";
+        $header_template .= $tab . '<a href="#retailerCode=<%= id %>" class="wpsl-view-dealer"><strong class="store-title"><%= store %></strong></a>' . "\r\n";
+        $header_template .= $tab . '<% } %>'; 
+    }
+    return $header_template;
+}
+
+add_action( 'wp_loaded', 'wpsl_plugin_override' );
+
+function wpsl_plugin_override() {
+//    wp_deregister_script('wpsl-js');
+//    wp_enqueue_script('wpsl-js', get_template_directory_uri() . '/js/whlsft-wpsl/wpsl-gmap-reiziger.js');
+    wp_enqueue_script('', '/wp-content/themes/reiziger/js/whlsft-riziger.js', false, false, true);
+    wp_enqueue_style('wpsl-style', '/wp-content/themes/reiziger/wpsl-templates/styles.css');
+    return;
+}
+
+//add_filter( 'wpsl_js_settings', 'custom_js_settings' );
+
+function custom_js_settings( $settings ) {
+
+    $settings['startMarker'] = '';
+
+    return $settings;
+}
+
+add_filter( 'wpsl_info_window_template', 'custom_wpsl_info_window_template' );
+
+function custom_wpsl_info_window_template() {
+    global $wpsl;
+    $info_window_template = '<div data-store-id="<%= id %>" class="wpsl-info-window small-info-window">' . "\r\n";
+    $info_window_template .= "\t\t" . '<p>' . "\r\n";
+    $info_window_template .= "\t\t\t" .  wpsl_store_header_template() . "\r\n";  // Check which header format we use
+    $info_window_template .= "\t\t\t" . '<span><%= address %></span>' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<span><%= address2 %></span>' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n"; // Use the correct address format
+    $info_window_template .= "\t\t" . '</p>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% if ( phone ) { %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<span><a class="info-call" href="tel:<%= formatPhoneNumber( phone ) %>">Call</a></span>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% if ( fax ) { %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'fax_label', __( 'Fax', 'wpsl' ) ) ) . '</strong>: <%= fax %></span>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% if ( email ) { %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<span><a href="mailto:<%= email %>" class="info-email">Email</a></span>' . "\r\n";
+    $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t" . '<%= createInfoWindowActions( id ) %>' . "\r\n";
+    $info_window_template .= "\t" . '</div>';
+    
+    
+    $info_window_template .= '<div data-store-id="<%= id %>" class="big-info-window">' . "\r\n";
+    $info_window_template .= "\t\t\t\t" .'<input type="hidden" value="<%= id %>" id="retailer-id" />' . "\r\n";
+    $info_window_template .= "\t\t" . '<div class="info-window-retailer">' . "\r\n";
+    $info_window_template .= "\t\t\t\t" .'<div class="big-info-window-index"><%= label %></div>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<div class="big-info-window-alldata">' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . wpsl_store_header_template( 'listing' ) . "\r\n"; // Check which header format we use
+    $info_window_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address %></span>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address2 %></span>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n"; // Use the correct address format
+    $info_window_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
+
+    $info_window_template .= "\t\t\t\t" . '<div class="big-window-details">' . "\r\n";
+    if ( !$wpsl_settings['hide_hours'] ) {
+        $info_window_template .= "\t\t\t\t" . '<% if ( hours ) { %>' . "\r\n";
+        $info_window_template .= "\t\t\t\t" . '<div class="open-time expand"><strong>Today\'s hours</strong><table class="wpsl-opening-hours">';
+        $info_window_template .= "\t\t\t\t" . '<tr><td><%= today_hours %></td></tr></table></div>';
+//        $info_window_template .= "\t\t\t\t" . '<div class="wpsl-store-hours"><%= hours %></div>' . "\r\n";
+        $info_window_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+    }
+
+    $info_window_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<div class="phone"><strong>' . esc_html( $wpsl->i18n->get_translation( 'phone_label', __( 'Phone', 'wpsl' ) ) ) . '</strong> <%= formatPhoneNumber( phone ) %></div>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '</div>' . "\r\n";
+
+    $info_window_template .= "\t\t\t\t" . '<% if ( email ) { %>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<a class="dealer-btn" href="#contact-retailer" data-store-id="<%= id %>">Contact Retailer</a>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+
+    $info_window_template .= "\t\t\t\t" . '</div>' . "\r\n";
+
+    $info_window_template .= "\t\t\t\t" . '<div class="big-window-map-links">' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<div class="dealer-web"><a class="wpsl-view-dealer" href="#retailerCode=<%= id %>">Retailer Details</a></div>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<div class="dealer-direction"><a class="view-direction" href="#retailerCode=<%= id %>">Get Directions</a></div>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '</div>' . "\r\n";
+
+    $info_window_template .= "\t\t" . '</div>' . "\r\n";
+
+    $info_window_template .= "\t\t\t\t" . '<div class="big-window-directions" style="display:none;">' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<button id="big-map-directions-back">< Back</button>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<div class="big-direction-search"><input autocomplete="off" id="big-location-input" type="text" value="'.$_REQUEST['big-location-input'].'" name="big-location-input" placeholder="Enter starting location" />' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<div class="big-location-btn-wrap"><input id="big-location-btn" type="submit" value="Get Directions"></div></div>' . "\r\n";
+
+    $info_window_template .= "\t\t\t\t" . '<div style="clear:both"></div>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<div id="big-map-directions-destination-container">' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<div id="big-map-directions-destination">' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<%= address %> <%= city %> <%= zip %> <%= country %>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '</div>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '</div>' . "\r\n";
+
+    $info_window_template .= "\t\t\t\t" . '<div id="big-map-directions-list">' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<ul></ul>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '</div>' . "\r\n";
+
+    $info_window_template .= "\t\t\t\t" . '</div>' . "\r\n";
+
+    $info_window_template .= "\t" . '</div>';
+    
+    return $info_window_template;
+}
+
+
+add_filter( 'wpsl_infobox_settings', 'custom_infobox_settings' );
+
+function custom_infobox_settings( $infobox_settings ) {
+
+    $infobox_settings['infoBoxClass'] = 'smallInfobox wpsl-infobox';
+//    $infobox_settings['infoBoxCloseMargin'] = '2px';
+//    $infobox_settings['infoBoxCloseUrl'] = '//www.google.com/intl/en_us/mapfiles/close.gif';
+//    $infobox_settings['infoBoxClearance'] = 'new google.maps.Size( Number( boxClearance[0] ), Number( boxClearance[1] ) )';
+//    $infobox_settings['infoBoxDisableAutoPan'] = 0;
+//    $infobox_settings['infoBoxEnableEventPropagation'] = 0;
+//    $infobox_settings['infoBoxPixelOffset'] = 'new google.maps.Size( Number( boxClearance[0] ), Number( boxClearance[1] ) )';
+//    $infobox_settings['infoBoxZindex'] = 1500;
+    
+    return $infobox_settings;
+}
+
+add_action( 'wp_ajax_dealer_search', 'wpsl_dealer_search' );
+add_action( 'wp_ajax_nopriv_dealer_search', 'wpsl_dealer_search' );
+function wpsl_dealer_search() {
+    $wpslF = new WPSL_Frontend();
+    $store_request = (object) array('ID' => $_GET['storeid']);
+
+    $store = $wpslF->get_store_meta_data(array(
+        $store_request
+    ));
+     
+    wp_send_json( $store );
+
+    exit();
+}
+
+add_filter( 'wpsl_sql', 'custom_sql' );
+function custom_sql() {
+    
+    global $wpdb, $wpsl, $wpsl_settings;
+    
+    $store_data = array();
+
+    /* Set the correct earth radius in either km or miles. 
+     * We need this to calculate the distance between two coordinates. 
+     */
+    $radius = ( $wpsl_settings['distance_unit'] == 'km' ) ? 6371 : 3959; 
+
+    /* The placeholder values for the prepared statement in the sql query. */
+    $placeholder_values = array(
+        $radius,
+        $_GET['lat'], 
+        $_GET['lng'], 
+        $_GET['lat']
+    );
+    
+    /* Check if we need to filter the results by category. */
+    if ( isset( $_GET['filter'] ) && $_GET['filter'] ) {
+        $placeholder_values[] = $_GET['filter'];
+
+        $cat_filter = "INNER JOIN $wpdb->term_relationships AS term_rel ON posts.ID = term_rel.object_id
+                       INNER JOIN $wpdb->term_taxonomy AS term_tax ON term_rel.term_taxonomy_id = term_tax.term_taxonomy_id
+                              AND term_tax.taxonomy = 'wpsl_store_category'
+                              AND term_tax.term_id = %d";
+    } else {
+        $cat_filter = '';
+    }
+    
+    if ( $wpsl->i18n->wpml_exists() ) {
+                $group_by = 'GROUP BY lat';
+            } else {
+                $group_by = '';
+            }
+            
+    if ( isset( $_GET['autoload'] ) && $_GET['autoload'] ) {
+    $limit = '';
+
+    if ( $wpsl_settings['autoload_limit'] ) {
+        $limit = 'LIMIT %d';
+        $placeholder_values[] = $wpsl_settings['autoload_limit'];
+    }
+
+    $sql_sort = 'ORDER BY distance '. $limit;
+    } else {
+        array_push( $placeholder_values, wpsl_check_store_filter( 'radius' ), wpsl_check_store_filter( 'max_results' ) );
+        if(isset($_REQUEST['page']))
+            $sql_sort = 'HAVING distance < %d ORDER BY distance';
+        else
+            $sql_sort = 'HAVING distance < %d ORDER BY distance LIMIT 0, %d';
+    }
+
+    /*****************KAMLESH KKK******************/
+    $page = (isset($_REQUEST['page'])) ? (int)$_REQUEST['page'] : 1;
+    $cur_page = $page;
+    $page -= 1;
+    $per_page = (isset($_REQUEST['perpage'])) ? (int)$_REQUEST['perpage'] : 5;
+    $start = $page * $per_page;
+    $lastindex = (isset($_REQUEST['lastindex'])) ? (int)$_REQUEST['lastindex'] : 0;
+
+    if($per_page == 'all') {
+        $pagelimit = "";
+    } else {
+        $pagelimit = "LIMIT ".$start." , ".$per_page;
+    }
+            
+    $sql = "SET @index = ".$lastindex.";";
+    $set = $wpdb->query($sql);
+
+    $sql = "SELECT (@index:=@index + 1) AS row,
+            (SELECT COUNT(posts.ID)
+            FROM $wpdb->posts AS posts
+            INNER JOIN $wpdb->postmeta AS post_lat ON post_lat.post_id = posts.ID AND post_lat.meta_key = 'wpsl_lat'
+            INNER JOIN $wpdb->postmeta AS post_lng ON post_lng.post_id = posts.ID AND post_lng.meta_key = 'wpsl_lng'
+            INNER JOIN $wpdb->postmeta AS post_zip ON post_zip.post_id = posts.ID AND post_zip.meta_key = 'wpsl_zip'
+            INNER JOIN $wpdb->postmeta AS post_city ON post_city.post_id = posts.ID AND post_city.meta_key = 'wpsl_city'
+            $cat_filter	WHERE posts.post_type = 'wpsl_stores' AND posts.post_status = 'publish' AND ( ( $placeholder_values[0] * acos( cos( radians( $placeholder_values[1] ) ) * cos( radians( post_lat.meta_value ) ) * cos( radians( post_lng.meta_value ) - radians( $placeholder_values[2] ) ) + sin( radians( $placeholder_values[3] ) ) * sin( radians( post_lat.meta_value ) ) ) ) < $placeholder_values[4] ) LIMIT 0,1) AS total,
+                    posts.*,
+                    post_lat.meta_value AS lat,
+                    post_lng.meta_value AS lng,
+                    post_zip.meta_value AS zip,
+                    post_city.meta_value AS city,
+                    ( %d * acos( cos( radians( %s ) ) * cos( radians( post_lat.meta_value ) ) * cos( radians( post_lng.meta_value ) - radians( %s ) ) + sin( radians( %s ) ) * sin( radians( post_lat.meta_value ) ) ) ) 
+                AS distance
+              FROM $wpdb->posts AS posts
+            INNER JOIN $wpdb->postmeta AS post_lat ON post_lat.post_id = posts.ID AND post_lat.meta_key = 'wpsl_lat'
+            INNER JOIN $wpdb->postmeta AS post_lng ON post_lng.post_id = posts.ID AND post_lng.meta_key = 'wpsl_lng'
+            INNER JOIN $wpdb->postmeta AS post_zip ON post_zip.post_id = posts.ID AND post_zip.meta_key = 'wpsl_zip'
+            INNER JOIN $wpdb->postmeta AS post_city ON post_city.post_id = posts.ID AND post_city.meta_key = 'wpsl_city'
+            $cat_filter WHERE posts.post_type = 'wpsl_stores' AND posts.post_status = 'publish' $group_by $sql_sort $pagelimit";
+    
+    return $sql;
+}
+
+add_filter( 'wpsl_store_meta', 'custom_store_meta', 10, 2 );
+
+function custom_store_meta( $store_meta, $store_id ) {
+    $today = date('l');
+    preg_match("/$today<\/td><td>(.*?)(<\/td><\/tr>)/", $store_meta['hours'], $result);
+    $store_meta['today_hours'] = $result[1];
+
+    return $store_meta;
+}
+
+function wpsl_check_store_filter( $filter ) {
+            
+    if ( isset( $_GET[$filter] ) && absint( $_GET[$filter] ) ) {
+        $filter_value = $_GET[$filter];
+    } else {
+        $filter_value = wpsl_get_default_filter_value( $filter );
+    }    
+
+    return $filter_value;
+}
+
+/**
+ * Get the default selected value for a dropdown.
+ * 
+ * @since 1.0
+ * @param  string $type     The request list type
+ * @return string $response The default list value
+ */
+function wpsl_get_default_filter_value( $type ) {
+
+   $settings    = get_option( 'wpsl_settings' );
+   $list_values = explode( ',', $settings[$type] );
+
+   foreach ( $list_values as $k => $list_value ) {
+
+       /* The default radius has a [] wrapped around it, so we check for that and filter out the [] */
+       if ( strpos( $list_value, '[' ) !== false ) {
+           $response = filter_var( $list_value, FILTER_SANITIZE_NUMBER_INT );
+           break;
+       }
+   }	
+
+   return $response;		
+}
+
+add_filter('wpsl_store_data', 'custom_wpsl_store_data');
+function custom_wpsl_store_data($stores){
+    $row = 1;
+    foreach ($stores as $k=>$store){
+        $stores[$k]['row'] = $row++;
+    }
+    return $stores;
+}
 ?>

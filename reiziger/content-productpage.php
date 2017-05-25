@@ -24,7 +24,7 @@ echo $content = apply_filters( 'the_content', get_the_content());
 </header>
 <article id="post-<?php the_ID(); ?>" class="whole-page product_pages">
 
-<div class="navigation3 topfixedmenu test" id="fixmenu1">
+<div class="navigation3 topfixedmenu" id="fixmenu1">
 <div class="wrapper clearfix">
 <?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
     <div></div>

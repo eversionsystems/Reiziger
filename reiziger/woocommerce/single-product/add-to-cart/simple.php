@@ -28,6 +28,7 @@ if ( ! $product->is_purchasable() ) {
 ?>
 
 <?php
+
 	// Availability
 	$availability      = $product->get_availability();
 	$availability_html = empty( $availability['availability'] ) ? '' : '<p class="stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</p>';
