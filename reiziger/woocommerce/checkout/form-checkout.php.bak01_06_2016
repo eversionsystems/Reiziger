@@ -1,0 +1,164 @@
+<?php
+/**
+ * Checkout Form
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/checkout/form-checkout.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you (the theme developer).
+ * will need to copy the new files to your theme to maintain compatibility. We try to do this.
+ * as little as possible, but it does happen. When this occurs the version of the template file will.
+ * be bumped and the readme will list any important changes.
+ *
+ * @see 	    http://docs.woothemes.com/document/template-structure/
+ * @author 		WooThemes
+ * @package 	WooCommerce/Templates
+ * @version     2.3.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+echo '<div class="wrapper clearfix" id="container"><div role="main" id="content">';
+
+wc_print_notices();
+
+if($checkout->enable_guest_checkout && ! is_user_logged_in() && !$_REQUEST['guest']) {
+	do_action( 'woocommerce_before_checkout_form', $checkout );
+	return;
+}
+
+// If checkout registration is disabled and not logged in, the user cannot checkout
+if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_user_logged_in() ) {
+	echo apply_filters( 'woocommerce_checkout_must_be_logged_in_message', __( 'You must be logged in to checkout.', 'woocommerce' ) );
+	return;
+}
+
+?>
+
+<form name="checkout" method="post" id="chk123" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
+
+	<?php if ( sizeof( $checkout->checkout_fields ) > 0 ) : ?>
+
+		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
+		<div class="gray-bg accord">1. Delivery & Pickup Options</div>
+		<div id="checkout-section1" class="order-review">
+			<h3 id="order_review_heading"><?php _e( '1. Delivery & Pickup Options', 'woocommerce' ); ?></h3>
+			<div id="order_review" class="woocommerce-checkout-review-order">
+				<?php woocommerce_order_review(); ?>
+			</div>
+			<div class="cnt-btn"><button type="button" id="delivery-btn" class="delivery count-btn" data-expand="checkout-section2" data-collapsed="checkout-section1" >Continue</button></div>
+		</div>
+		<div class="cl"></div>
+		<div class="gray-bg accord">2. Shipping Address</div>
+		<div id="checkout-section2" class="customer_details">
+			<div class="col-12">
+				<?php do_action( 'woocommerce_checkout_shipping' ); ?>
+				<div class="cnt-btn"><button type="button" id="shipping-btn" class="shipping count-btn" data-expand="checkout-section3" data-collapsed="checkout-section2">Continue</button></div>
+			</div>
+		</div>
+		<div class="cl"></div>
+		<div class="gray-bg accord">3. Payment</div>
+		<div id="checkout-section3" class="customer_details">
+			<div class="col-12">
+				<?php do_action( 'woocommerce_checkout_billing' ); ?>
+				<?php if ( is_user_logged_in() ): ?>
+				<?php if ( WC()->cart->needs_payment() ) : ?>
+					<div class="cnt-btn"><input type="submit" class="billing count-btn" name="woocommerce_checkout_place_order" id="place_order" value="Continue" data-value="Countinue" /></div>
+					<?php wp_nonce_field( 'woocommerce-process_checkout' ); ?>
+				<?php endif; ?>
+				<?php else : ?>
+					<div class="cnt-btn"><button type="button" id="billing-btn" class="billing count-btn" data-expand="checkout-section4" data-collapsed="checkout-section3">Continue</button></div>
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="cl"></div>
+		
+		<?php if ( !is_user_logged_in() ): ?>
+		<div class="gray-bg accord">4. Account</div>
+		<div id="checkout-section4" class="account_section"><?php wc_get_template( 'checkout/account.php', array(
+			'checkout'           => WC()->checkout(),
+			'available_gateways' => WC()->payment_gateways()->get_available_payment_gateways(),
+			'order_button_text'  => apply_filters( 'woocommerce_order_button_text', __( 'Continue', 'woocommerce' ) )
+		) ); ?></div>
+		<?php endif; ?>
+		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
+
+	<?php endif; ?>
+	
+	<div class="cl"></div>
+	<div class="check-footer"><div class="cart-total-area"><?php echo 'Cart Subtotal '; wc_cart_totals_order_total_html(); ?></div>
+	<p class="agree-area  woocommerce-validated"><input type="checkbox" id="termsaccept" name="termsaccept" value="Terms and Condition Accepted" class="required"> I understand and agree that I am entering into an electronic transaction, and by clicking Continue, I also accept and agree to all terms of <a href="#">Reizigers Sales and Refund Policy.</a><br /> I agree to receive electronically all documents, including warranty, disclosure and/or insurance documents, as applicable, to my nominated email address.</p></div>
+</form>
+
+<?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
+<?php echo '</div>'; ?>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery("#billing-btn").on('click',function(){
+		var email_id = jQuery("#billing_email").val();
+		var url = '<?php echo get_template_directory_uri(); ?>/account-check.php';
+		jQuery.ajax({
+            url: url,
+            type: 'POST',
+            data: { email_id: email_id },
+            success: function( data ) {
+              //data is whatever your PHP script returns
+			  if(data) {
+			  	jQuery(".userlogin_id").empty().html(data);
+				jQuery("#regidfound").empty().html("We found an existing Reiziger ID thta matches your email");
+				document.getElementById("username").value = data;    
+			  } else {
+				jQuery("#checkout-section3").hide();
+			  }
+            }
+        });
+		
+		return false;
+	});
+	
+		//if(jQuery('#checkout-section2').is(':visible'))
+	//	{
+	//	alert();
+		
+//	if(jQuery("#shipping_first_name").val()!='' && jQuery("#shipping_company").val()!="" &&jQuery("#shipping_city").val()!="")
+//	{
+//	}
+	//jQuery("#shipping_stateshipping_state").val();
+	//jQuery("#shipping_postcode").val();
+	//jQuery("#shipping_country").val();
+	jQuery(".count-btn").on('click',function(){
+		var expand = jQuery(this).data('expand');
+		var collapsed = jQuery(this).data('collapsed');
+		
+		if(collapsed != "" && expand != "") {
+			jQuery("#"+collapsed).slideUp('normal');
+			jQuery("#"+expand).slideDown('normal');
+		}
+	});
+	
+	jQuery(".accord").on('click',function(){
+		var id = jQuery(this).next('div').attr('id');
+		jQuery('[id^=checkout]').not('#'+id).slideUp('normal');
+		jQuery(this).next('div').slideToggle('normal');
+	});	
+jQuery("#chk123").on('submit',function(){
+			if(jQuery("#termsaccept").is(':checked'))
+			{
+			}
+			else
+			{
+				jQuery("#termsaccept").attr ( "class" ,"error" );
+				return false;
+			}
+		});	
+	
+});
+</script>
+  
+
+	
+	
+	

@@ -1,0 +1,742 @@
+@media only screen and (min-width:767px) and (max-width:900px){
+.scroll-to-fixed-fixed  .midd-header{padding:0px !important;line-height: 48px;}
+header#fixmenu-desk{ height:auto !important;}
+#fixmenu1.scroll-to-fixed-fixed{margin-top: 48px !important;}
+.scroll-to-fixed-fixed .ubermenu ul li > ul {margin-top: 0 !important;top: 48px !important;}
+nav#ubermenu-main-2-main-menu{line-height: 48px;height: 48px;}
+.scroll-to-fixed-fixed .navication ul.ubermenu-nav > li > a{ line-height:48px !important; }
+.scroll-to-fixed-fixed .ubermenu ul li > ul{ top:48px !important; }
+
+a.procount{line-height: 48px !Important;height: 48px !Important;top: 0px !IMPORTANT;}
+.navication{float: none;}
+#fixmenu1.navigation3.topfixedmenu ul.nav{float: left;margin-left: 80px;}
+}
+
+@media only screen and (min-width:767px) and (max-width:770px){
+nav#ubermenu-main-2-main-menu{line-height:48px;height:48px;margin-left:25px;}
+.ubermenu .ubermenu-custom-content-padded{padding-left: 10px !important;padding-right: 10px !important;}
+.ubermenu-custom-content h3{font-size: 20px;line-height: 1;}
+.cart-count{ top:58%;}
+
+/* Root Booster */
+div#section6.page.images-height.overview_growfoodab .review_mobile.visible-xs{ display:block !important;}
+div#section3.page.back-bg.images-height.noscroll.rootbooster_overview_technolgy.relative .review_mobile.visible-xs{ display:block !important;}
+article.overview_rootbooster_tech_content{max-width: 90%;width: 100%;}
+div#section3 .bg-img.overview_rootbooster_techology .wrapper{top: 75%;}
+
+}
+
+@media (max-width:860px){
+#fixmenu-desk{display: none;}
+#fixmenu-mobi{display: block !important;z-index: 100000 !important;}
+.mobi-menu { display: block;}
+.navication {float: left;}
+
+#fixmenu-mobi .ubermenu ul li > ul, .scroll-to-fixed-fixed .ubermenu ul li > ul{margin-top:0px !important;
+overflow-x:scroll;position:fixed;top:auto !important;}
+.ubermenu .ubermenu-nav .ubermenu-column-full{width:95% !important;margin:0px auto;float:none !important;}
+.ubermenu-custom-content h3{font-size:24px;padding:25px 0 10px !important;}
+.ubermenu-custom-content{font-size:14px;}
+.ubermenu-content-block{border-bottom:1px solid #b2b2b2;}
+.ubermenu-target-with-image{float:right;padding: 14px 0 !important;}
+.ubermenu-custom-content h3{font-size:24px;}
+.ubermenu-custom-content p{font-size:14px;font-family:'HelveticaNeueThin_0';margin:0;padding:8px 0 0;
+color:#333;overflow:hidden;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li a{padding-top:10px !important;padding-bottom:10px !important;}
+#fixmenu-mobi .midd-header{padding:0px;}
+#fixmenu-mobi .navication{height:43px;line-height:43px;}
+#fixmenu-mobi .navication ul.ubermenu-nav > li > a, 
+#fixmenu-mobi.scroll-to-fixed-fixed .navication ul.ubermenu-nav > li > a{line-height:43px !IMPORTANT;}
+a.procount{line-height:43px !important;height:43px !Important;top:0px !Important;}
+.scroll-to-fixed-fixed .navication ul.ubermenu-nav > li > a{line-height:43px !important;}
+#fixmenu-mobi.scroll-to-fixed-fixed .navication ul.ubermenu-nav > li > a > span{vertical-align:top;}
+.scroll-to-fixed-fixed .midd-header{padding:0px !important;line-height:43px;}
+header{height: 43px !important;}
+#fixmenu1.scroll-to-fixed-fixed{margin-top:43px !important;}
+
+.bottom-header{display:block;margin-top:-2px;}
+.navigation3{display: none;}
+
+.bottom-header .navigation2 ul.nav{width:100%;}
+.navigation2 ul.nav li{width:100%;}
+.bottom-header .navigation2 ul.nav li a{padding-left:2px !important;
+padding-top:5px;padding-bottom:5px;}
+
+.bottom-header .navigation2 ul.nav li a{color:#ffffff;display:block;font-size:11px;padding:0 7px 0 5px;}
+.navigation2 ul.nav li a:hover{border-bottom:1px solid #f6a900;}
+ul.nav li a{border-bottom: 1px solid #9ea7bd;}
+.bottom-header .navigation2{border-top: 1px solid #ffffff;margin: 0px 0 0;overflow-x: auto;
+padding: 1px 0 0px;}
+.navigation2 ul.nav li{width: 100%;}
+.bottom-header .navigation2 ul.nav li a:hover, 
+.bottom-header .navigation2 ul.nav li a:focus{color:#c2cbdc;}
+.bottom-header .navigation2 ul.nav li a{color:#ffffff;display:block;font-size:11px;
+padding: 0 7px 0 5px;}
+.navigation2 ul.nav li a{border-bottom:1px solid #9ea7bd;}
+.bottom-header .navigation2 ul.nav li a{padding-left:2px !important;
+padding-top:5px;padding-bottom:5px;}
+.bottom-header .navigation2 ul.nav li:last-child{padding-bottom:20px;}
+}
+
+/* iPad Portrait */
+@media only screen and (min-width:765px) and (max-width:770px){
+div#section3 .bg-img.overview_expandedclay_techology{height:1290px !important;}
+.innter-page #section4.page.noscroll.images-height .bg-img{height: 1290px !important;}
+div#section38.guranteediv.gurantee .col-md-5.col-md-offset-6{width:70%;margin-left:40%;}
+
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-active ul, 
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-in-transition ul{margin: 7px 0 0 !important;
+position: inherit !important;top: 0px !important;border:none !important;}
+
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li a {  display: block;  font-size: 17px;  padding-bottom: 9px !important;  padding-top: 9px !important; color:#525252l;  margin: 0 14px !important;}
+#fixmenu-mobi .ubermenu  ul.ubermenu-nav ul li + li {border-top:#e3e3e3 solid 1px !important;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li a{ padding-top:10px !important; padding-bottom:10px !important;}
+
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li{border:none !important;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li a:hover{color:#f6a704;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li:last-child a{ padding-bottom:13px !important;margin-bottom:14px !important;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li:first-child a{ padding-top: 0 !important;}
+
+
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-has-submenu-drop > a span.ubermenu-target-text{width:100%; position:relative;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-has-submenu-drop > a span:after{content: "\f067";  font-family: 'FontAwesome'; color:#8f8f8f; /*font-size:14px;*/ font-size:10px; display:inline-block; padding-left:10px; float:right; }
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-active > a span:after{content: "\f068";  font-family: 'FontAwesome'; color:#8f8f8f; /*font-size:14px;*/ font-size:10px; display:inline-block; padding-left:10px;  float:right;}
+.ubermenu-skin-vanilla .ubermenu-submenu.ubermenu-submenu-drop{background: #fff !important;}
+
+div#section4.expandedclay_performance{padding-top: 100px;}
+.review_mobile.visible-xs.visible-sm img{vertical-align: bottom;}
+
+/*peatmix*/
+div#section3.page.back-bg.peatmix_overview_technolgy .review_mobile.visible-xs,
+div#section3.page.back-bg.cococoir_overview_technolgy .review_mobile.visible-xs{ display:block !important;}
+
+#peat-section2.page.peat-section2.coco-section2.coco-formula .bg-img .layer-div{position: absolute;bottom: 120px;}
+
+div#peat-section2 .bg-img .layer-div{bottom: 120px;position: absolute;}
+
+/* Bloom Food AB*/
+#section2.grow-formula  article.overview_bloomfoodab_formula{ bottom:120px  !Important;}
+.page.Pure-free.images-height.noscroll.bg-img.relative.bloomfoodab_overview_reviews{background-position: center;}
+
+#section1.page.img100 {margin-top: 80px;}
+#section1.page.img100.rootbooster_sec1 {margin-top:-59px;}
+#bloom-minerals-section1{margin-top: 80px;}
+
+/* Grow Booster */
+div#section5.budbooster_performance .wrapper .col-md-7.fordesktop{display:none;}
+.page.Pure-free.images-height.noscroll.bg-img.growbooster_overview_reviews{background-position:center;}
+div#section5.budbooster_performance.grboostr{padding: 100px 0px;}
+
+
+/* Bud Booster */
+div#section7.overview_budbooster_direction .review_mobile.visible-xs{ display:block !important;}
+.page.Pure-free.images-height.noscroll.bg-img.relative.budbooster_overview_reviews{background-position:center;}
+#section4.page.overview_growfoodab .review_mobile.visible-xs{display: block !Important;}
+div#section4.page.overview_growfoodab.budboostertech .review_mobile.visible-xs{display:block !important;}
+div#section5.budbooster_performance .growfood_ab_performance_content{max-width:none;}
+div#section5.budbooster_performance{padding:100px 0px;}
+
+/* Bloom Minerals */
+.page.Pure-free.images-height.noscroll.bg-img.relative.bloomminerals_overview_reviews{background-position: center;}
+
+
+.wrapper.vertical-align.review h2 br.visible-md.visible-lg{ display:block !important;}
+
+}
+
+/* iPad Landscape */
+@media only screen and (min-width:1020px) and (max-width:1030px){
+.growfood_ab_guarantee_content{position: absolute;right: 100px;z-index: 1;
+-webkit-transform:translate(20%,20%);-moz-transform:translate(20%,20%);
+-o-transform:translate(20%,20%);transform: translate(20%,20%);}
+.growfood_ab_guarantee_content{max-width: 500px;width: 100%;}
+
+.megaleft-menu.col-3{width: 18%;}
+.megamidd-menu.col-6{width:63%;}
+.megaright-menu.col-3{width: 19%;}
+
+.logo{width:170px;}
+.ubermenu ul li > ul{margin-top:0 !important;top:76px !important;}
+header.scroll-to-fixed-fixed .ubermenu ul li > ul{margin-top:0 !important;top:45px !important;}
+#fixmenu1.navigation3.topfixedmenu ul.nav li{padding-left: 11.5px !important;padding-right: 11.9px!important;}
+
+.wrapper.vertical-align.gallery .col-md-4.center-block .visible-xs{display: block !Important;}
+#section6 .bg-img.overviewbg3{display:block;}
+
+.innter-page #section4.page.noscroll.images-height .bg-img{height: 1290px !important;}
+
+/* Bloom Food AB*/
+div#section6.page.images-height.overview_growfoodab .water-img{display: none;}
+.page.Pure-free.images-height.noscroll.bg-img.relative.bloomfoodab_overview_reviews{background-position: center;}
+
+/* Root Booster */
+article.overview_rootbooster_tech_content {
+    max-width: 90%;width: 100%;}
+
+
+}
+
+@media screen and (min-width:960px) and (max-width:970px){
+.megaleft-menu.col-3{width:15%;}
+.megamidd-menu.col-6{width:65%;}
+.megaright-menu.col-3{width: 19%;}
+
+ul#ubermenu-nav-main-2-main-menu > li:last-child > a{padding-right: 44px !IMPORTANT;}
+.scroll-to-fixed-fixed .ubermenu ul li > ul{top: 42px !important;}
+#fixmenu1.navigation3.scroll-to-fixed-fixed ul.nav li a{font-size: 11px !important;}
+.desk-header .navication ul.ubermenu-nav > li > a{font-size: 14.2px;}
+
+.ubermenu .ubermenu-custom-content-padded,
+.ubermenu .ubermenu-target{padding:15px 12px !Important;}
+
+/*peatmix*/
+#peat-section2.page.peat-section2.peat-section2-new.peat-formula.back-bg.noscroll.peatmix_overview.images-height .bg-img .layer-div,
+#peat-section2.coco-section2 .layer-div{
+    position: absolute;bottom: 120px;}
+.innter-page #section4.page.noscroll.images-height .bg-img{height: 1290px !important;}
+
+/* Bloom Food AB*/
+.page.Pure-free.images-height.noscroll.bg-img.relative.bloomfoodab_overview_reviews{background-position: center;}
+
+/* Root Booster */
+div#section6.page.images-height.overview_growfoodab .review_mobile.visible-xs{ display:block !important;}
+
+/* Grow Booster */
+#bloom-minerals-section1,
+div#section1.page.img100{margin-top: 95px;}
+
+div#section1.page.img100.rootslider.rootbooster_sec1{ margin-top:0px;}
+
+div#section3.page.grow-booster.back-bg.images-height.noscroll.overview_growbooster .bg-img.overview_growbooster_formula {
+    background: #000 url("../images/overview_growbooster_technology_bg.jpg") no-repeat fixed center top / cover;
+}
+
+
+} 
+@media screen and (min-width:850px) and (max-width:860px){
+.ubermenu-skin-vanilla .ubermenu-submenu.ubermenu-submenu-drop{border-top:0px !important;}
+
+ul#ubermenu-nav-main-11 li:first-child > a{padding-left:0px !Important;}
+ul#ubermenu-nav-main-11 li:last-child > a{padding-right:0px !Important;}
+#fixmenu-mobi .navication{width: 70%;float: right;}
+
+
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-active ul, 
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-in-transition ul{margin: 7px 0 0 !important;
+position: inherit !important;top: 0px !important;border:none !important;}
+
+
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li a{display: block;font-size:17px;  padding-bottom: 9px !important;  padding-top: 9px !important; color:#525252l;  margin: 0 14px !important;}
+
+#fixmenu-mobi .ubermenu  ul.ubermenu-nav ul li + li{border-top:#e3e3e3 solid 1px !important;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li a{ padding-top:10px !important; padding-bottom:10px !important;}
+
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li{border:none !important;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li a:hover{color:#f6a704;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li:last-child a{ padding-bottom: 13px !important; /*border-bottom:#e3e3e3 solid 1px;*/ margin-bottom:14px !important; }
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li:first-child a{padding-top: 0 !important;}
+
+
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-has-submenu-drop > a span.ubermenu-target-text{ width:100%; position:relative;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-has-submenu-drop > a span:after{ content: "\f067";  font-family: 'FontAwesome'; color:#8f8f8f; /*font-size:14px;*/ font-size:10px; display:inline-block; padding-left:10px; float:right; }
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-active > a span:after{content: "\f068";  font-family: 'FontAwesome'; color:#8f8f8f; /*font-size:14px;*/ font-size:10px; display:inline-block; padding-left:10px;  float:right;}
+.ubermenu-skin-vanilla .ubermenu-submenu.ubermenu-submenu-drop{background: #fff !important;}
+
+/*From Woocommerce.css*/
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li a{padding-left:0px;padding-right:0px;margin:0px auto;}
+
+
+/* Overview Pages */
+.growfood_ab_guarantee_content {
+    -webkit-transform: translate(0%,40%);
+    -moz-transform: translate(0%,40%);
+    -o-transform: translate(0%,40%);
+    transform: translate(0%,40%);
+}
+
+.innter-page #section4.page.noscroll.images-height .bg-img {
+    height: 1290px !important;
+}
+#peat-section2.page.peat-section2.peat-section2-new.peat-formula.back-bg.noscroll.peatmix_overview.images-height .bg-img .layer-div,
+#peat-section2.page.peat-section2.coco-section2.coco-formula.noscroll.images-height .bg-img .layer-div{
+    position: absolute;width: 100%;bottom:120px;}
+.wrapper.vertical-align.gallery > .col-md-4.center-block > .visible-xs{display: block !IMPORTANT;}
+
+/*Bloom Food */
+.page.Pure-free.images-height.noscroll.bg-img.relative.bloomfoodab_overview_reviews{background-position: center;}
+
+
+/* Root Booster */
+div#section6.page.images-height.overview_growfoodab .review_mobile.visible-xs{display: block !Important;}
+article.overview_rootbooster_tech_content {
+max-width: 90%;position: absolute;top: 70%;left: 50%;transform: translate(-50%);
+text-align: center;width: 100%;}
+
+.page.Pure-free.images-height.noscroll.bg-img.relative.budbooster_overview_reviews{
+background-position: center;}
+
+/* Bloom Minerals */
+#bloom-minerals-section1.page.img100.slider-heading{margin-top: 80px;}
+.page.Pure-free.images-height.noscroll.bg-img.relative.bloomminerals_overview_reviews{background-position: center;}
+
+
+}
+
+@media screen and (min-width:798px) and (max-width:801px){
+.ubermenu-skin-vanilla .ubermenu-submenu.ubermenu-submenu-drop{border-top:0px !important;}
+
+ul#ubermenu-nav-main-11 li:first-child > a{padding-left:0px !Important;}
+
+#fixmenu-mobi .navication{width: 70%;float: right;}
+
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-active ul, 
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-in-transition ul{margin: 7px 0 0 !important;
+position: inherit !important;top: 0px !important;border:none !important;}
+
+
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li a{display:block;
+font-size:17px; padding-bottom:9px !important;padding-top:9px !important;color:#525252l;
+margin:0 14px !important;}
+
+#fixmenu-mobi .ubermenu  ul.ubermenu-nav ul li + li{border-top:#e3e3e3 solid 1px !important;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li a{padding-top:10px !important; padding-bottom:10px !important;}
+
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li{border:none !important;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li a:hover{color:#f6a704;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li:last-child a{padding-bottom: 13px !important; /*border-bottom:#e3e3e3 solid 1px;*/ margin-bottom:14px !important; }
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul ul li:first-child a{padding-top: 0 !important;}
+
+
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-has-submenu-drop > a span.ubermenu-target-text{width:100%; position:relative;}
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-has-submenu-drop > a span:after{ content: "\f067";  font-family: 'FontAwesome'; color:#8f8f8f; /*font-size:14px;*/ font-size:10px; display:inline-block; padding-left:10px; float:right; }
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li.ubermenu-active > a span:after{content: "\f068";  font-family: 'FontAwesome'; color:#8f8f8f; /*font-size:14px;*/ font-size:10px; display:inline-block; padding-left:10px;  float:right;}
+.ubermenu-skin-vanilla .ubermenu-submenu.ubermenu-submenu-drop{background:#fff !important;}
+
+.cart-count{top: 24.3px;}
+
+/*From Woocommerce.css*/
+#fixmenu-mobi .ubermenu ul.ubermenu-nav ul li a{padding-left: 0px;padding-right: 0px;margin: 0px auto;}
+
+/* Overview pages */
+.growfood_ab_guarantee_content{max-width: 500px;width: 100%;}
+.growfood_ab_guarantee_content {
+    -webkit-transform:translate(20%,40%);
+    -moz-transform:translate(20%,40%);
+    -o-transform:translate(20%,40%);
+    transform:translate(20%,40%);
+}
+.wrapper.vertical-align.gallery > .col-md-4.center-block > .visible-xs{display: block !IMPORTANT;}
+
+.innter-page #section4.page.noscroll.images-height .bg-img{height: 1290px !important;}
+#peat-section2.page.peat-section2.peat-section2-new.peat-formula.back-bg.noscroll.peatmix_overview.images-height .bg-img .layer-div,
+#peat-section2.coco-section2 .layer-div {
+    position: absolute;bottom:120px;}
+
+.review_mobile.visible-xs img, .review_mobile.visible-xs img{vertical-align: bottom;}	
+
+
+/*Grow Food AB*/
+.col-md-6.col-md-push-6 .growfood_ab_technology_content h2{font-size: 35px;}
+
+/* Bloom Food AB */
+.page.Pure-free.images-height.noscroll.bg-img.relative.bloomfoodab_overview_reviews{background-position: center;}
+#section2.grow-formula  article.overview_bloomfoodab_formula{ bottom:120px  !Important;}
+
+
+/* Root Booster */
+div#section6.page.images-height.overview_growfoodab .review_mobile.visible-xs{ display:block !important;}
+article.overview_rootbooster_tech_content{max-width: 90%;width: 100%;}
+.page.Pure-free.images-height.noscroll.bg-img.growbooster_overview_reviews{ background-position:center;}
+
+
+/* Grow Booster */
+div#bloom-minerals-section1.page.img100.slider-heading.grow-booster-section-1{margin-top: 80px;}
+
+/* Bud Booster */
+div#section5.budbooster_performance .growfood_ab_performance_content{max-width:none;}
+div#section5.budbooster_performance{padding:100px 0px;}
+div#section7.overview_budbooster_direction .review_mobile.visible-xs{ display:block !important;}
+.page.Pure-free.images-height.noscroll.bg-img.relative.budbooster_overview_reviews{background-position:center;}
+div#bloom-minerals-section1.page.img100.slider-heading.blmminerals{margin-top: 80px;}
+
+
+/* Bloom Minerals */
+.page.Pure-free.images-height.noscroll.bg-img.relative.bloomminerals_overview_reviews{background-position: center;}
+
+
+} /* End__ min-width:798px - max-width:801px */
+
+
+
+@media screen and (min-width:600px) and (max-width:605px){
+.cart-count{top:24.3px;}
+.page.expandedclay_gallery.images-height.noscroll.bg-img,
+.page.peatmix_gallery.images-height.noscroll.bg-img,
+.page.cococoir_gallery.images-height.noscroll.bg-img{background:none;min-height:auto;}
+
+div#section4.expandedclay_performance{padding-top: 100px;}
+.wrapper.vertical-align.gallery{top: 34%;}
+.review_mobile.visible-xs.visible-sm img{vertical-align: bottom;}
+
+
+
+div#peat-section2 .bg-img .layer-div .wrapper{margin-left: 0px;}
+
+/*Grow Food AB*/
+#section2.grow-formula article{padding: 0 !important;position:relative;width:100%;bottom: auto;}
+#section2.grow-formula .bg-img.overview .wrapper,
+#section2.grow-formula article.overview_bloomfoodab_formula{position: absolute;left: 20px;bottom: 120px;
+width: 90% !Important;padding-left: 15px !IMPORTANT;}
+
+.page.growfoodab.images-height.noscroll.bg-img .wrapper.vertical-align{min-height: auto !important;}
+.page.bloomfoodab_gallery.images-height.noscroll.bg-img{min-height: auto !important;}
+
+/*Root Booster */
+#section2.grow-formula .bg-img.overview_rootbooster_performance .wrapper article {
+    position: absolute;left: 20px;bottom: 50px;}
+div#section3 .bg-img.overview_rootbooster_techology .wrapper {top: auto;bottom: 50px;}
+.page.rootbooster_gallery.images-height.noscroll.bg-img{ min-height:auto !important; background:none;}
+
+/* Grow Booster */
+.page.growbooster_gallery.images-height.noscroll.bg-img{ min-height:auto !important; background:none;}
+
+/* Bud Booster */
+.page.budbooster_gallery.images-height.noscroll.bg-img{ min-height:auto !important; background:none;}
+
+div#bloom-minerals-section2.bud-bootster-new-section2 .mobile-bloom-7 .layer-div{
+top: auto;bottom: 120px;text-align: left;}
+div#bloom-minerals-section2.bud-bootster-new-section2 .mobile-bloom-7 .layer-div .wrapper article p{ max-width:none;}
+.review_mobile.visible-xs img{vertical-align: bottom;}
+
+/* Bloom Minerals */
+.page.bloomminerals_gallery.images-height.noscroll.bg-img{ min-height:auto !important;}
+
+	
+
+}
+@media screen and (min-width:530px) and (max-width:535px){
+.page.expandedclay_gallery.images-height.noscroll.bg-img,
+.page.peatmix_gallery.images-height.noscroll.bg-img,
+.page.cococoir_gallery.images-height.noscroll.bg-img,
+.page.rootbooster_gallery.images-height.noscroll.bg-img{background:done;min-height:auto;}
+.growfood_ab_guarantee_content p{font-size: 17px;}
+
+.review_mobile.visible-xs img, .review_mobile.visible-xs img{vertical-align: bottom;}
+
+div#peat-section2 .bg-img .layer-div .wrapper{margin-left: 0px;}
+
+/*Grow Food AB*/
+#section2.grow-formula article{padding: 0 !important;position:relative;width:100%;bottom: auto;}
+#section2.grow-formula .bg-img.overview .wrapper,
+div#section2.grow-formula .bg-img.overview_bloomfoodab_formula .wrapper{position: absolute;left: 20px;bottom: 120px;}
+
+.page.growfoodab.images-height.noscroll.bg-img .wrapper.vertical-align{min-height: auto !Important;}
+
+.page.bloomfoodab_gallery.images-height.noscroll.bg-img{ min-height:auto !important;}
+
+/*Root Booster */
+#section2.grow-formula .bg-img.overview_rootbooster_performance .wrapper article{position: absolute;left: 20px;bottom: 50px;}
+
+/* Grow Booster */
+#section2.grow-formula .bg-img.overview_growbooster_technology article {
+    bottom: 50px;position: absolute;left: 20px;width: 100% !Important;max-width: 90% !Important;}
+.page.growbooster_gallery.images-height.noscroll.bg-img{ min-height:auto !important; background:none !important;}
+.page.budbooster_gallery.images-height.noscroll.bg-img{ min-height:auto !important; background:none;}
+
+/* Bud Booster */
+div#bloom-minerals-section2.bud-bootster-new-section2 .mobile-bloom-7 .layer-div{
+top: auto;bottom: 120px;text-align: left;}
+
+/* Bloom Minerals */
+.page.bloomminerals_gallery.images-height.noscroll.bg-img{ min-height:auto !important;}
+
+
+
+}
+
+
+
+
+
+
+/* Mobile View */
+@media screen and (min-width:319px) and (max-width:320px){
+.navication ul.ubermenu-nav > li > a{font-size:9px !Important;}
+.ubermenu-custom-content h3{font-size:19px;}
+.cart-count{top:25px;}
+}
+@media screen and (min-width:355px) and (max-width:365px){
+.navication ul.ubermenu-nav > li > a{font-size: 11px !Important;}
+.cart-count{top:25px;}
+
+.page.cococoir_gallery.images-height.noscroll.bg-img {min-height: auto;}
+
+}
+
+
+@media screen and (min-width:370px) and (max-width:380px){
+.navication ul.ubermenu-nav > li > a{font-size: 11px !Important;}
+.cart-count{top:25px;}
+
+.page.bloomminerals_gallery.images-height.noscroll.bg-img,
+.page.peatmix_gallery.images-height.noscroll.bg-img,
+.page.cococoir_gallery.images-height.noscroll.bg-img,
+.page.bloomfoodab_gallery.images-height.noscroll.bg-img,
+.page.rootbooster_gallery.images-height.noscroll.bg-img,
+.page.growbooster_gallery.images-height.noscroll.bg-img,
+.page.budbooster_gallery.images-height.noscroll.bg-img{ min-height:auto !important;}
+
+
+}
+@media screen and (min-width:410px) and (max-width:420px),
+screen and (min-width:530px) and (max-width:535px),
+screen and (min-width:475px) and (max-width:485px){
+.cart-count{top:24.5px;}
+}
+@media screen and (min-width:730px) and (max-width:740px){
+.cart-count{top:56%;}
+}
+
+@media screen and (min-width:410px) and (max-width:420px){
+.page.cococoir_gallery.images-height.noscroll.bg-img{min-height:auto;}
+
+.page.bloomminerals_gallery.images-height.noscroll.bg-img,
+.page.peatmix_gallery.images-height.noscroll.bg-img,
+.page.cococoir_gallery.images-height.noscroll.bg-img,
+.page.bloomfoodab_gallery.images-height.noscroll.bg-img,
+.page.rootbooster_gallery.images-height.noscroll.bg-img,
+.page.growbooster_gallery.images-height.noscroll.bg-img,
+.page.budbooster_gallery.images-height.noscroll.bg-img{ min-height:auto !important;}
+
+
+
+}
+
+div#checkout-section4 .col-4.fr div#login p.lost_password{display: none !important;}
+.woocommerce form .form-row.place-order{padding: 10px 0px;margin: 0 0 6px;}
+
+input#account_username,input#account_password{width: 100%;border: none;
+-webkit-box-sizing: border-box;box-sizing: border-box;
+border: #c8c8c8 solid 1px;height: 30px;
+-webkit-border-radius: 4px;border-radius: 4px;padding: 0 8px;}
+div#checkout-section4 .container-fluid{padding-left:0px;padding-right:0px;}
+
+/* My account page  */
+table.shop_table.shop_table_responsive.my_account_orders{
+border-collapse: separate;border-spacing: 0;border-width: 1px 0 0 1px;margin: 0 0 1.75em;
+table-layout: fixed;width: 100%;}
+table.shop_table.shop_table_responsive.my_account_orders, 
+table.shop_table.shop_table_responsive.my_account_orders th, 
+table.shop_table.shop_table_responsive.my_account_orders td{border: 1px solid #d1d1d1;}
+table.shop_table.shop_table_responsive.my_account_orders td{border-width: 0 1px 1px 0;}
+table.shop_table.shop_table_responsive.my_account_orders th{border-width: 0 1px 1px 0;
+font-weight: 700;}
+table.shop_table.shop_table_responsive.my_account_orders th, 
+table.shop_table.shop_table_responsive.my_account_orders td{padding: 0.4375em;}
+
+@media (max-width: 480px){
+article#post-4070 div#my-account-content{ float:left;}
+#my-account-menu .myaccount-menu li a{text-align:left !important;}
+
+.slider-heading,
+.page.img100.rootslider.rootbooster_sec1,
+div#section1.page.img100 {
+    margin-top:50px !important;
+}
+
+
+
+}
+
+body.page-id-4070 article#post-4070{max-width: 1170px;margin: 0px auto;padding-top: 50px;
+clear: both;}
+div#my-account-content h2{font-size: 26px;text-transform: uppercase;}
+#my-account-menu .user-profile .username{text-align: center;margin-bottom: 0px;padding-bottom: 0px;}
+div#my-account-menu .user-info span.logout{display: none;}
+#my-account-menu .myaccount-menu{margin:0px 0 30px 0px;}
+
+tr th:last-child, tr td:last-child {border-width: 0px 0px 1px 0px !Important;}
+
+article#post-4070 div#my-account-content .woocommerce nav.woocommerce-MyAccount-navigation{ display:none;}
+
+.woocommerce-account .woocommerce-MyAccount-content {
+   float: none !important;
+    width: 100% !important;
+}
+
+.woocommerce-MyAccount-content input[type="text"],
+.woocommerce-MyAccount-content input[type="email"],
+.woocommerce-MyAccount-content input[type="tel"],
+article#post-4070 form.login input#username,
+article#post-4070 form.login input#password,
+
+input#password_current,input#password_1,input#password_2,
+input#user_login
+{
+    width: 100%;
+    border: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: #c8c8c8 solid 1px;
+    height: 30px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    padding: 0 8px
+}
+form.woocommerce-EditAccountForm.edit-account fieldset {
+    border: #c8c8c8 solid 1px;
+}
+.woocommerce-MyAccount-content input.woocommerce-Button.button {
+    margin-left: 2px;
+    margin-top: 15px;
+}
+body.logged-out article#post-4070 {
+    max-width: 960px;
+    margin: 0px auto !IMPORTANT;
+    width: 100%;
+}
+
+input.woocommerce-Button.button{
+    background: #fff;
+    color: #f6a900;
+    border: 1px solid #f6a900;
+    font-family: 'Conv_HelveticaLt';
+    font-size: 15px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    font-weight: lighter;
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
+}
+.woocommerce .shipping-order-area table.shop_table td span {
+    padding-top: 30px;
+    display: inline-block;
+}
+
+.wonderplugin-engine {
+    display: none;
+}
+
+@media screen and (max-width:640px){
+.ghfg-flower .img-col .thumb-img{margin-bottom: 15px;}
+}
+
+.u-column1.col-1.woocommerce-Address address,
+.u-column2.col-2.woocommerce-Address address{font-style: normal;}
+
+.billing-feilds .add-area .add-label,
+.shipping-order-area .add-area .add-label{min-width: 96px;}
+body.page-id-4070.woocommerce-view-order .woocommerce-MyAccount-content .total-area .col-8.fl{display: none;}
+
+
+p#shipping_mobile_field .i-error {
+    font-size: 12px;
+    padding: 2px 5px !important;
+    width: 105%;
+}
+div#container.wrapper.clearfix.prodt_pagess{ padding-top:100px;}
+
+@media screen and (max-width:770px){
+article#post-4070 .woocommerce {
+    width: 90%;
+    float: left;
+    float: none;
+    margin: 0px auto;
+} 
+article#post-4070 div#my-account-menu {
+    margin: 0px auto;
+    width: 90%;    float: none;
+}
+
+article#post-4070 div#my-account-content {
+    margin: 0px auto !Important;
+    width: 90% !Important;
+    margin-left: 5% !IMPORTANT;
+}
+
+
+}
+
+body.woocommerce-order-received .total-area .col-8.fl{ display:none;}
+.woocommerce table.shop_table td {border-top: 1px solid rgba(0,0,0,.1) !IMPORTANT;}
+tr.order-total small.includes_tax{display: none;}
+
+.total-area .col-4 div:nth-child(2) {
+    color: #464646;
+}
+.total-area .col-4 div:nth-child(3) {
+    color: #F00;
+}
+
+
+div.wp-tiles-grid.uber-grid {
+    overflow: visible;
+}
+.quantity select.input-text.qty.text{padding: 0px 0px 0px 5px;}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+.quantity select.input-text.qty.text{padding: 0px 0px 0px 5px;line-height: 33px;
+width: 48px;text-indent: 5px;}
+}
+@-moz-document url-prefix() {
+.quantity select.input-text.qty.text{padding: 0px;}
+}
+
+@media screen and (max-width:800px){
+.wp-tiles-tile.gallerImageIndex4,.wp-tiles-tile.gallerImageIndex5,.wp-tiles-tile.gallerImageIndex6{ display:none !important;}
+}
+
+.wp-tiles-byline-wrapper {
+    display: none;
+}
+@media screen and (max-width:768px){
+.wrapper.vertical-align.gallery{ top:50%;}
+
+/* Bloom mineral overview*/
+div#bloom-minerals-section2 .layer-div .wrapper{width: 95%;}
+#bloom-minerals-section2.minerals-formula .layer-div{width:100%;}
+div#bloom-minerals-section2 .layer-div .wrapper article{text-align: justify;}
+
+.row.expandedclay_performance_section{ margin:0px;}
+
+div#section5.budbooster_performance.overview_growfoodab.grboostr .wrapper{ width:100%;}
+
+}
+
+body.page-id-5743 .col-md-12 ul {
+    padding: 0px 0 10px 20px;
+}
+article#post-5743 .wrapper .col-md-12 {
+    padding: 0px;
+}
+body.page-id-5743 .main-body {
+    height: auto;
+}
+article#post-5743 .wrapper .col-md-12 * {
+    font-size: 13px;
+}
+
+
+.reizigers_sales_refund_policy b {
+    font-weight: normal;
+    font-size: 15px;
+}
+.reizigers_sales_refund_policy p {
+    font-weight: normal;
+    font-size: 13px;
+}
+article#post-5743 .wrapper .col-md-12 p {
+    padding-bottom: 5px;
+}
+article#post-5743 .wrapper .col-md-12 b {
+    color: #000;
+}
+b.security_title {
+    font-size: 17px !Important;
+}
+@media screen and (max-width:860px){
+article#post-5743 {
+    padding-top: 60px;
+}
+}

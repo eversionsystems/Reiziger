@@ -1,0 +1,550 @@
+<?php
+if(!is_array($_SESSION['catid']))
+{
+	$_SESSION['catid'][]="";
+}
+/**
+ * The Template for displaying all single products
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/single-product.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you (the theme developer).
+ * will need to copy the new files to your theme to maintain compatibility. We try to do this.
+ * as little as possible, but it does happen. When this occurs the version of the template file will.
+ * be bumped and the readme will list any important changes.
+ *
+ * @see 	    http://docs.woothemes.com/document/template-structure/
+ * @author 		WooThemes
+ * @package 	WooCommerce/Templates
+ * @version     1.6.4
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+get_header('shop'); 
+global $post;
+$terms = get_the_terms( $post->ID, 'product_cat' );
+
+foreach ($terms as $term) 
+{
+	$product_cat_id = $term->term_id;
+	$product_cat = $term->name;
+	break;
+}
+	##### GET BANNER AND MENU For PRODUCT Mobile ##	
+	
+	if($product_cat_id==130)
+	{
+		##Bloom Minerals
+		?>
+		
+		<div class="bottom-header">
+		<div class="wrapper clearfix">
+			<h3><?php echo $product_cat;?></h3>
+			<div class="slide-nav"><a></a></div>
+			<?php
+						$content ="";
+						$mypages = get_post(2036);
+						
+						$content = $mypages->post_content;
+						if ( ! $content ) // Check for empty page
+							continue;
+							$content = apply_filters( 'the_content', $content );
+						//echo $content;
+					    $mobile_menu_prod = get_field('mobile_menu',2036);
+						$product_link_prod = get_field('product_link',2036);
+						?>
+                        <div><a href="<?php echo $product_link_prod; ?>" class="buy-btn">Buy Now</a></div>
+                        <div class="cl"></div><div class="navigation2">
+						<?php echo wp_nav_menu( array( 'theme_location' => $mobile_menu_prod,
+							  'container' => '','container_class' => '', 
+							  'menu_class' => 'nav', 'menu_id' => ' ') ); ?>
+                        </div>
+		</div><!-- wrapper clearfix-->
+	</div>
+		<?php 
+
+	}
+	if($product_cat_id==140)
+	{
+		##Bud Booster
+		?>
+		
+		<div class="bottom-header">
+		<div class="wrapper clearfix">
+			<h3><?php echo $product_cat;?></h3>
+			<div class="slide-nav"><a></a></div>
+			<?php
+						$content ="";
+						$mypages = get_post(4124);
+						
+						$content = $mypages->post_content;
+						if ( ! $content ) // Check for empty page
+							continue;
+							$content = apply_filters( 'the_content', $content );
+						//echo $content;
+					    $mobile_menu_prod = get_field('mobile_menu',4124);
+						$product_link_prod = get_field('product_link',4124);
+						?>
+                        <div><a href="<?php echo $product_link_prod; ?>" class="buy-btn">Buy Now</a></div>
+                        <div class="cl"></div><div class="navigation2">
+						<?php echo wp_nav_menu( array( 'theme_location' => $mobile_menu_prod,
+							  'container' => '','container_class' => '', 
+							  'menu_class' => 'nav', 'menu_id' => ' ') ); ?>
+                        </div>
+		</div><!-- wrapper clearfix-->
+	</div>
+		<?php 
+
+	}
+	if($product_cat_id==143)
+	{
+		##Bloom Food 
+		?>
+		
+		<div class="bottom-header">
+		<div class="wrapper clearfix">
+			<h3><?php echo $product_cat;?></h3>
+			<div class="slide-nav"><a></a></div>
+			<?php
+						$content ="";
+						$mypages = get_post(738);
+						
+						$content = $mypages->post_content;
+						if ( ! $content ) // Check for empty page
+							continue;
+							$content = apply_filters( 'the_content', $content );
+						//echo $content;
+					    $mobile_menu_prod = get_field('mobile_menu',738);
+						$product_link_prod = get_field('product_link',738);
+						?>
+                        <div><a href="<?php echo $product_link_prod; ?>" class="buy-btn">Buy Now</a></div>
+                        <div class="cl"></div><div class="navigation2">
+						<?php echo wp_nav_menu( array( 'theme_location' => $mobile_menu_prod,
+							  'container' => '','container_class' => '', 
+							  'menu_class' => 'nav', 'menu_id' => ' ') ); ?>
+                        </div>
+            
+		</div><!--.wrapper clearfix-->
+	</div>
+		<?php 
+
+	}
+	if($product_cat_id==141)
+	{
+		##Grow Booster
+		?>
+		
+		<div class="bottom-header">
+		<div class="wrapper clearfix">
+			<h3><?php echo $product_cat;?></h3>
+			<div class="slide-nav"><a></a></div>
+			<?php
+						$content ="";
+						$mypages = get_post(2016);
+						
+						$content = $mypages->post_content;
+						if ( ! $content ) // Check for empty page
+							continue;
+							$content = apply_filters( 'the_content', $content );
+						//echo $content;
+					    $mobile_menu_prod = get_field('mobile_menu',2016);
+						$product_link_prod = get_field('product_link',2016);
+						?>
+                        <div><a href="<?php echo $product_link_prod; ?>" class="buy-btn">Buy Now</a></div>
+                        <div class="cl"></div><div class="navigation2">
+						<?php echo wp_nav_menu( array( 'theme_location' => $mobile_menu_prod,
+							  'container' => '','container_class' => '', 
+							  'menu_class' => 'nav', 'menu_id' => ' ') ); ?>
+                        </div>
+		</div><!-- wrapper clearfix-->
+	</div>
+		<?php 
+
+	}
+	if($product_cat_id==142)
+	{
+		##Grow Food A&B
+		?>
+		
+		<div class="bottom-header">
+		<div class="wrapper clearfix">
+			<h3><?php echo $product_cat;?></h3>
+			<div class="slide-nav"><a></a></div>
+			<?php
+						$content ="";
+						$mypages = get_post(8);
+						
+						$content = $mypages->post_content;
+						if ( ! $content ) // Check for empty page
+							continue;
+							$content = apply_filters( 'the_content', $content );
+						//echo $content;
+					    $mobile_menu_prod = get_field('mobile_menu',8);
+						$product_link_prod = get_field('product_link',8);
+						?>
+                        <div><a href="<?php echo $product_link_prod; ?>" class="buy-btn">Buy Now</a></div>
+                        <div class="cl"></div><div class="navigation2">
+						<?php echo wp_nav_menu( array( 'theme_location' => $mobile_menu_prod,
+							  'container' => '','container_class' => '', 
+							  'menu_class' => 'nav', 'menu_id' => ' ') ); ?>
+                        </div>
+		
+        </div><!-- wrapper clearfix-->
+	</div>
+		<?php 
+
+	}
+	if($product_cat_id==153)
+	{
+		##COCO
+		?>
+		
+		<div class="bottom-header">
+		<div class="wrapper clearfix">
+			<h3><?php echo $product_cat;?></h3>
+			<div class="slide-nav"><a></a></div>
+			<?php
+						$content ="";
+						$mypages = get_post(2049);
+						
+						$content = $mypages->post_content;
+						if ( ! $content ) // Check for empty page
+							continue;
+							$content = apply_filters( 'the_content', $content );
+						//echo $content;
+					    $mobile_menu_prod = get_field('mobile_menu',2049);
+						$product_link_prod = get_field('product_link',2049);
+						?>
+                        <div><a href="<?php echo $product_link_prod; ?>" class="buy-btn">Buy Now</a></div>
+                        <div class="cl"></div><div class="navigation2">
+						<?php echo wp_nav_menu( array( 'theme_location' => $mobile_menu_prod,
+							  'container' => '','container_class' => '', 
+							  'menu_class' => 'nav', 'menu_id' => ' ') ); ?>
+                        </div>
+		</div><!-- wrapper clearfix-->
+	</div>
+		<?php 
+
+	}
+	if($product_cat_id==155)
+	{
+		##Expanded
+		?>
+		
+		<div class="bottom-header">
+		<div class="wrapper clearfix">
+			<h3><?php echo $product_cat;?></h3>
+			<div class="slide-nav"><a></a></div>
+			<?php
+						$content ="";
+						$mypages = get_post(2041);
+						
+						$content = $mypages->post_content;
+						if ( ! $content ) // Check for empty page
+							continue;
+							$content = apply_filters( 'the_content', $content );
+						//echo $content;
+					    $mobile_menu_prod = get_field('mobile_menu',2041);
+						$product_link_prod = get_field('product_link',2041);
+						?>
+                        <div><a href="<?php echo $product_link_prod; ?>" class="buy-btn">Buy Now</a></div>
+                        <div class="cl"></div><div class="navigation2">
+						<?php echo wp_nav_menu( array( 'theme_location' => $mobile_menu_prod,
+							  'container' => '','container_class' => '', 
+							  'menu_class' => 'nav', 'menu_id' => ' ') ); ?>
+                        </div>
+		</div><!-- wrapper clearfix-->
+	</div>
+		<?php 
+
+	}
+	if($product_cat_id==154)
+	{
+		##Peat Mix
+		?>
+		
+		<div class="bottom-header">
+		<div class="wrapper clearfix">
+			<h3><?php echo $product_cat;?></h3>
+			<div class="slide-nav"><a></a></div>
+			<?php
+						$content ="";
+						$mypages = get_post(2043);
+						
+						$content = $mypages->post_content;
+						if ( ! $content ) // Check for empty page
+							continue;
+							$content = apply_filters( 'the_content', $content );
+						//echo $content;
+					    $mobile_menu_prod = get_field('mobile_menu',2043);
+						$product_link_prod = get_field('product_link',2043);
+						?>
+                        <div><a href="<?php echo $product_link_prod; ?>" class="buy-btn">Buy Now</a></div>
+                        <div class="cl"></div><div class="navigation2">
+						<?php echo wp_nav_menu( array( 'theme_location' => $mobile_menu_prod,
+							  'container' => '','container_class' => '', 
+							  'menu_class' => 'nav', 'menu_id' => ' ') ); ?>
+                        </div>
+		</div><!-- wrapper clearfix-->
+	</div>
+		<?php 
+
+	}
+	if($product_cat_id==139)
+	{
+		##Root Booster
+		?>
+		
+		<div class="bottom-header">
+		<div class="wrapper clearfix">
+			<h3><?php echo $product_cat;?></h3>
+			<div class="slide-nav"><a></a></div>
+			<?php
+						$content ="";
+						$mypages = get_post(288);
+						
+						$content = $mypages->post_content;
+						if ( ! $content ) // Check for empty page
+							continue;
+							$content = apply_filters( 'the_content', $content );
+						//echo $content;
+					    $mobile_menu_prod = get_field('mobile_menu',288);
+						$product_link_prod = get_field('product_link',288);
+						?>
+                        <div><a href="<?php echo $product_link_prod; ?>" class="buy-btn">Buy Now</a></div>
+                        <div class="cl"></div><div class="navigation2">
+						<?php echo wp_nav_menu( array( 'theme_location' => $mobile_menu_prod,
+							  'container' => '','container_class' => '', 
+							  'menu_class' => 'nav', 'menu_id' => ' ') ); ?>
+                        </div>
+		</div><!-- wrapper clearfix-->
+	</div>
+		<?php 
+
+	}
+	
+	
+?></header>
+<article id="post-2036" class="whole-page product_pages storepages">
+<?php
+## KAMLESH KKK
+## Its Product header part
+	##### GET BANNER AND MENU For PRODUCT Desktop ##	
+//	echo $product_cat_id; exit;
+	if($product_cat_id==130) 
+	{
+		##Bloom Minerals
+		$content ="";
+		$mypages = get_post(2950);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		//echo $content;
+		$content ="";
+		$mypages = get_post(2952);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		echo $content;	
+	}
+	
+	if($product_cat_id==140)
+	{
+		##Bud Booster
+		$content ="";
+		$mypages = get_post(4126);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		//echo $content;
+		$content ="";
+		$mypages = get_post(4131);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		echo $content;	
+	}
+	//Dh
+	//print_r($product_cat_id);
+	if($product_cat_id==143)
+	{
+		##Bloom Food 
+		$content ="";
+		$mypages = get_post(771);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		//echo $content;
+		$content ="";
+		$mypages = get_post(750);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		echo $content;	
+	}
+	if($product_cat_id==141)
+	{
+		##Grow Booster
+		$content ="";
+		$mypages = get_post(3073);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		//echo $content;
+		$content ="";
+		$mypages = get_post(3077);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		echo $content;	
+	}
+	if($product_cat_id==142)
+	{
+		##Grow Food A&B
+		$content ="";
+		$mypages = get_post(26);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		//echo $content;
+		$content ="";
+		$mypages = get_post(30);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		echo $content;	
+	}
+	if($product_cat_id==153)
+	{
+		##COCO
+		$content ="";
+		$mypages = get_post(2591);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		//echo $content;
+		$content ="";
+		$mypages = get_post(2594);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		echo $content;	
+	}
+	if($product_cat_id==155)
+	{
+		##Expanded
+		$content ="";
+		$mypages = get_post(2749);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		//echo $content;
+		$content ="";
+		$mypages = get_post(2757);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		echo $content;	
+	}
+	if($product_cat_id==154)
+	{
+		##Peat Mix
+		$content ="";
+		$mypages = get_post(2301);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		//echo $content;
+		$content ="";
+		$mypages = get_post(2306);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		echo $content;	
+	}
+	if($product_cat_id==139)
+	{
+		##Root Booster
+		$content ="";
+		$mypages = get_post(448);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		//echo $content;
+		$content ="";
+		$mypages = get_post(450);	
+		$content = $mypages->post_content;
+		if ( ! $content ) // Check for empty page
+			continue;
+			$content = apply_filters( 'the_content', $content );
+		echo $content;	
+	}
+	?>
+ 
+
+	<?php
+		/**
+		 * woocommerce_before_main_content hook.
+		 *
+		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+		 * @hooked woocommerce_breadcrumb - 20
+		 */
+		do_action( 'woocommerce_before_main_content' );
+	?>
+
+		<?php 
+			while ( have_posts() ) : the_post(); 
+				wc_get_template_part( 'content', 'single-product' );
+				
+			endwhile; // end of the loop. 
+		?>
+
+	<?php
+		/**
+		 * woocommerce_after_main_content hook.
+		 *
+		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+		 */
+		do_action( 'woocommerce_after_main_content' );
+	?>
+
+	<?php
+		/**
+		 * woocommerce_sidebar hook.
+		 *
+		 * @hooked woocommerce_get_sidebar - 10
+		 */
+		do_action( 'woocommerce_sidebar' );
+	?>
+
+<?php get_footer( 'shop' ); ?>
+ </article>  
+ <script> 
+		jQuery(window).load(function() {
+			// Handler for .ready() called.
+			/*jQuery('html, body').animate({
+				scrollTop: jQuery('.whole-page #fixmenu1').offset().top
+			}, 'slow');*/
+		});
+		</script>
+        

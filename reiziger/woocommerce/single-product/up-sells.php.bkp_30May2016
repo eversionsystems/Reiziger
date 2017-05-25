@@ -1,0 +1,116 @@
+<?php
+/**
+ * Single Product Up-Sells
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/single-product/up-sells.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you (the theme developer).
+ * will need to copy the new files to your theme to maintain compatibility. We try to do this.
+ * as little as possible, but it does happen. When this occurs the version of the template file will.
+ * be bumped and the readme will list any important changes.
+ *
+ * @see 	    http://docs.woothemes.com/document/template-structure/
+ * @author 		WooThemes
+ * @package 	WooCommerce/Templates
+ * @version     1.6.4
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+
+
+global $product, $woocommerce_loop, $woocommerce;
+
+/* DJ */
+$cart_url = $woocommerce->cart->get_cart_url();
+/* --- */
+
+### KAMLESH KKK
+if($_REQUEST['add-to-cart']!='' && $_REQUEST['quantity']!="") {
+
+	//$upsells = $product->get_upsells();
+	
+	$terms = get_the_terms( $post->ID, 'product_cat' );
+	$product_cat_id = $terms[0]->term_id;
+	
+	$meta_query = WC()->query->get_meta_query();
+	
+	$args = array(
+		'number'     => 4,
+		'orderby'    => 'title',
+		'order'      => 'ASC',
+		'hide_empty' => true,
+		'include'    => array(),
+        'exclude'    => array($product_cat_id)
+	);
+	$product_categories = get_terms( 'product_cat', $args);
+	$count = count($product_categories);
+	if ( $count > 0 ){ ?>
+		<script type="text/javascript" src="<?php echo get_template_directory_uri().'/woocommerce/upsell-addtocart.js'; ?>"></script>
+		<script> 
+		jQuery(window).load(function() {
+			// Handler for .ready() called.
+			jQuery('html, body').animate({
+				scrollTop: jQuery('.whole-page #fixmenu1').offset().top
+			}, 'slow');
+		});
+		</script>
+
+		<!-- Preloader -->
+		<div id="response">
+			<div id="response-status">&nbsp;</div>
+		</div>
+		<?php echo '<div id="#upsells" class="upsells products">'; ?>
+		<h2><?php _e( 'You may also like&hellip;', 'woocommerce' ) ?></h2>
+		<ul class="products">
+		<?php 
+		foreach ( $product_categories as $product_category ) {
+			//print_r($product_category);
+			$taxonomy_image_url = get_option('z_taxonomy_image'.$product_category->term_id);
+			echo '<li class="cat-list">';
+			if(!empty($taxonomy_image_url)) {
+				echo '<div class="cat-img"><img src="'.$taxonomy_image_url.'" alt="'.$product_category->name.'" /></div>';
+			}
+			echo '<h3>' . $product_category->name . '</h3>';
+				$args = array(
+					'ignore_sticky_posts' => 1,
+					'no_found_rows'       => 1,
+					'posts_per_page' => -1,
+					'tax_query' => array(
+						'relation' => 'AND',
+						array(
+							'taxonomy' => 'product_cat',
+							'field' => 'slug',
+							// 'terms' => 'white-wines'
+							'terms' => $product_category->slug
+						)
+					),
+					'post_type' => 'product',
+					'orderby' => 'title,',
+					'post__not_in' => array( $product->id ),
+					'meta_query'  => $meta_query
+				);
+				$products = new WP_Query( $args );
+				echo "<ul>";
+				$woocommerce_loop['columns'] = $columns;
+				if ( $products->have_posts() ) :
+					while ( $products->have_posts() ) : $products->the_post();
+						wc_get_template_part( 'content', 'upsellproduct' );
+					endwhile; // end of the loop.
+				endif;
+				
+				echo "</ul>";
+			echo '</li>';
+		}
+		?> </ul> <?php 
+		echo '</div>'; ?>
+		
+		<div class="upsell-bottom">
+			<div class="coun-btn"><a class="countinue" href="<?php echo $cart_url; ?>" title="Countinue">Countinue</a></div>
+			<div class="total-price">$<span class="total-amount">0.0</span></div>
+		</div>
+		
+	<?php wp_reset_postdata(); }	
+}
