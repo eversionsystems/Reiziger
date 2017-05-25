@@ -1416,18 +1416,27 @@ function custom_wpsl_store_data($stores){
 }
 
 /*
- * Sort posts on the category posts page according to the custom sort order
+ * Modify the posts query.
+ *
+ * Sort posts on the category posts page according to the custom sort order.
+ * Exclude reiziger-tv category from the search.
  *
  * @since	1.0
  */
-function reiz_category_post_order( $query ){
+function reiz_get_posts( $query ){
+	// order category by date
 	if ( $query->is_main_query() && is_category( 'reiziger-tv' ) ) {
 		$query->set( 'orderby', 'date' );
 		$query->set( 'order' , 'ASC' );
 	}
+	
+	// exclude reiziger-tv category from search
+	if ( $query->is_search ) {
+		$query->set( 'cat', '-97' );
+	}
 }
 
-add_action( 'pre_get_posts' , 'reiz_category_post_order' );
+add_action( 'pre_get_posts' , 'reiz_get_posts' );
 
 /**
  * Write messages to error.log file
