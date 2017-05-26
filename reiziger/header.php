@@ -254,10 +254,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<?php if ( is_active_sidebar( 'top-header' ) ) : ?>
 <div class="head-top">
   <div class="wrapper clearfix">
-    <?php //dynamic_sidebar( 'top-header' ); ?>
+	<?php if ( is_active_sidebar( 'top-header' ) ) :
+				dynamic_sidebar( 'top-header' );
+		else : ?>
     <ul>
       <li><span><a href="mailto:customercare@reiziger.com"><i class="fa fa-envelope-o"></i>customercare@reiziger.com</a></span> <span> <i class="fa fa-phone"></i> 1800 734 944</span> </li>
       <?php     $UserSignIn = 0;
@@ -298,9 +299,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </li>
       <li> <a href="https://www.facebook.com/ReizigerHolland" target="_blank"><i class="fa fa-facebook"></i></a> </li>
     </ul>
+	<?php endif; ?>
   </div>
 </div>
-<?php endif; ?>
 
 <header id="fixmenu-desk" class="desk-header">
   <div class="midd-header">

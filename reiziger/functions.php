@@ -1170,13 +1170,15 @@ function custom_store_header_template($location = 'info_window') {
     }
     return $header_template;
 }
-add_action( 'wp_loaded', 'wpsl_plugin_override' );
+add_action( 'wp_enqueue_scripts', 'wpsl_plugin_override' );
 function wpsl_plugin_override() {
 //    wp_deregister_script('wpsl-js');
 //    wp_enqueue_script('wpsl-js', get_template_directory_uri() . '/js/whlsft-wpsl/wpsl-gmap-reiziger.js');
-    wp_enqueue_script('', '/wp-content/themes/reiziger/js/whlsft-riziger.js', false, false, true);
-    wp_enqueue_style('wpsl-style', '/wp-content/themes/reiziger/wpsl-templates/styles.css');
-    return;
+	// Store Locatior Scroll Down Script
+	if( is_page( 'find-retailer-results' ) ) {
+		wp_enqueue_script('', '/wp-content/themes/reiziger/js/whlsft-riziger.js', false, false, true);
+		wp_enqueue_style('wpsl-style', '/wp-content/themes/reiziger/wpsl-templates/styles.css');
+	}
 }
 //add_filter( 'wpsl_js_settings', 'custom_js_settings' );
 function custom_js_settings( $settings ) {

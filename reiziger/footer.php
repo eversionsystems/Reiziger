@@ -16,6 +16,44 @@
 			<?php if ( is_active_sidebar( 'footer-top' ) ) : ?>
                     <?php dynamic_sidebar( 'footer-top' ); ?>
             <?php endif; ?>
+			<div id="section38" class="page latest-news">
+			  <div class="container">
+				<div class="news-right">
+				  <h2>Subscribe to our newsletter.</h2>
+				  <p class="receive">Receive the latest news and growing information from Reiziger craftsmen.</p>
+				  <p>Product updates | Craft growing and nutrient features | Access to exclusive content</p>
+				  <div class="cl"></div>
+				  <div class="subscribe-form">
+					<?php $Path=$_SERVER['REQUEST_URI'];
+									$URI='http://www.reiziger.com'.$Path.'?success=1';
+										?>
+					<form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" onSubmit="return ValidateForm(this)">
+					  <input type=hidden name="oid" value="00D20000000KCn1">
+					  <input type=hidden name="retURL" value="<?php echo $URI; ?>">
+					  <!--<input type="hidden" name="debug" value=1>
+											<input type="hidden" name="debugEmail" value="jay@tanksite.com.au">-->
+					  <input type="hidden" id="lead_source" name="lead_source" value="Website - Reiziger.com">
+					  <input type="hidden" id="Campaign_ID" name="Campaign_ID" value="701200000012FEM">
+					  <div class="row">
+						<div class="col-xs-12 col-sm-6">
+						  <div class="col-xs-12">
+							<input id="email" name="email" type="text" placeholder="Your Email"><br>
+							<div id="email-error" style="color: red; display: none;"></div>
+						  </div>
+						  <div class="col-xs-12 sub-btn">
+							<input type="submit" value="Subscribe Now">
+						  </div>
+						</div>
+						<div class="col-xs-12 col-sm-6">
+						  <script src='https://www.google.com/recaptcha/api.js'></script>
+						  <div class="g-recaptcha" data-expired-callback="iMightBetARobot" data-callback="imNotARobot" data-sitekey="6LfCtgoUAAAAAJIvEN8bGxQEN7ROiuLYfSSdTsXA"></div>
+						</div>
+					  </div>
+					</form>
+				  </div>
+				</div>
+			  </div>
+			</div>
 
             <div class="footer-midd">
                 <div class="wrapper clearfix">

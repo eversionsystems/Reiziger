@@ -1588,10 +1588,17 @@ transition: all 0.6s;*/ }
 
 .zip-input {  background: #f6a704 none repeat scroll 0 0;  bottom: 0;  float: left;  margin: 0 0 0;  position: absolute;  width: 40%;  z-index: 100000; padding:8px 0;}
 
-.city-search {  float: right;}
+.city-search {  float: left;}
 
 
-.city-search input  { background: url(../images/mark-icon.png) no-repeat 90% center;  border: medium none;  color: #ffffff;  font-size: 14px;  height: 30px;  text-transform: uppercase;  width: 200px;  padding-right: 66px;}
+.city-search input  { 
+	background: url(../images/mark-icon.png) no-repeat 90% center;  
+	border: medium none;  color: #ffffff;  
+	font-size: 14px;  height: 30px;  
+	text-transform: uppercase;  
+	width: 200px;  
+	padding-right: 66px;
+}
 
 .city-search ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #fff;
@@ -2308,7 +2315,14 @@ text-align:center; border: 1px solid #f6a704;
 .landing-page .wpsl-search { background:none !important; padding:0px !important; margin:0px !important;}
 .landing-page #wpsl-search-input { width:280px !important; background:none !important; border:0 !important; font-size:14px !important; font-family: 'Conv_HelveticaLt' !important; height:35px !important; color:#fff !important;}
 
-.landing-page .wpsl-search #wpsl-search  { width:auto !important;  padding-right: 12px !important; position:absolute !important; right:0px !important; right: 32px !important;    top: 13px; cursor:pointer;}
+.landing-page .wpsl-search #wpsl-search  { 
+	width:auto !important;  
+	padding-right: 12px !important; 
+	position:absolute !important; 
+	right:0px !important; 
+	right: 32px !important;    
+	top: 13px; cursor:pointer;
+}
 
 
 #wpsl-wrap #wpsl-result-list li.wpsl-preloader::before,#wpsl-wrap #wpsl-result-list li.no-results::before  {
@@ -6265,3 +6279,51 @@ sup.disclaimer_wrapper a.dis_a:hover{
     position: relative;
 }
 
+
+/**
+ * Subscription Form
+ */
+  .subscribe-form input {
+    width: 100%;
+    height: 33px;
+    border: #9f9f9f solid 1px;
+    background: #fff;
+    padding: 0 3%;
+    margin: 0;
+  }
+  
+  .subscribe-form .sub-btn input {
+    width: 100%;
+    padding: 0;
+    margin: 10px 0 0 0;
+    border: #f6a704 solid 1px;
+    height: 33px;
+    background: none;
+    color: #f6a704;
+    cursor: pointer;
+    float: left;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .g-recaptcha {
+      margin-top: 20px;
+    }
+    .subscribe-form .col-xs-12 {
+      padding-right: 0px;
+      padding-left: 0px;
+    }
+    .subscribe-form .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .subscribe-form div[class*='col-xs-'] {
+      padding-left: 0;
+    }
+    .subscribe-form .row {
+      margin-left: 0;
+      margin-right: 15px;
+    }
+  }
